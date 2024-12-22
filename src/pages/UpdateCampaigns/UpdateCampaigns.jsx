@@ -80,7 +80,7 @@ const UpdateCampaigns = () => {
       <Helmet>
         <title>SprintSpace | Update Campaign</title>
       </Helmet>
-      <h1 className="text-3xl font-bold text-teal-600 dark:text-teal-400 text-center mb-8">
+      <h1 className="text-3xl font-bold text-purple-600 dark:text-purple-400 text-center mb-8">
         Update Campaign
       </h1>
       <div className="w-full max-w-3xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-10">
@@ -96,7 +96,7 @@ const UpdateCampaigns = () => {
                 id="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-teal-300 dark:bg-gray-600 focus:outline-none"
+                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-purple-300 dark:bg-gray-600 focus:outline-none"
                 placeholder="Enter campaign title"
               />
             </div>
@@ -113,7 +113,7 @@ const UpdateCampaigns = () => {
                 value={formData.description}
                 onChange={handleChange}
                 rows="4"
-                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-teal-300 dark:bg-gray-600 focus:outline-none"
+                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-purple-300 dark:bg-gray-600 focus:outline-none"
                 placeholder="Enter campaign description"
               ></textarea>
             </div>
@@ -131,7 +131,7 @@ const UpdateCampaigns = () => {
                   id="minDonation"
                   value={formData.minDonation}
                   onChange={handleChange}
-                  className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-teal-300 dark:bg-gray-600 focus:outline-none"
+                  className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-purple-300 dark:bg-gray-600 focus:outline-none"
                   placeholder="Enter minimum donation amount"
                 />
               </div>
@@ -148,7 +148,7 @@ const UpdateCampaigns = () => {
                   id="deadline"
                   value={formData.deadline}
                   onChange={handleChange}
-                  className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-teal-300 dark:bg-gray-600 focus:outline-none"
+                  className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-purple-300 dark:bg-gray-600 focus:outline-none"
                 />
               </div>
             </div>
@@ -162,7 +162,7 @@ const UpdateCampaigns = () => {
                 id="image"
                 value={formData.image}
                 onChange={handleChange}
-                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-teal-300 dark:bg-gray-600 focus:outline-none"
+                className="block w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-white focus:ring focus:ring-purple-300 dark:bg-gray-600 focus:outline-none"
                 placeholder="Enter image URL"
               />
             </div>
@@ -170,7 +170,7 @@ const UpdateCampaigns = () => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="px-6 py-2 bg-teal-600 text-white rounded-lg shadow-md hover:bg-teal-700 focus:ring focus:ring-teal-300 focus:outline-none"
+              className="px-6 py-2 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 focus:ring focus:ring-purple-300 focus:outline-none"
             >
               Update Campaign
             </button>

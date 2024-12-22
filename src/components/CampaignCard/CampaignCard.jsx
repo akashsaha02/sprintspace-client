@@ -52,7 +52,7 @@ const CampaignCard = ({ campaigns }) => {
                             {/* Additional Info */}
                             <div className="mt-2 flex flex-row justify-between gap-2">
                                 <p className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 capitalize">
-                                    <BiCategory className="text-teal-400 text-lg" />
+                                    <BiCategory className="text-purple-400 text-lg" />
                                     {campaign.type}
                                 </p>
                                 <p className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -66,7 +66,7 @@ const CampaignCard = ({ campaigns }) => {
                             {/* Learn More Button */}
                             <Link
                                 to={`/campaigns/${campaign._id}`}
-                                className="mt-4 block w-full text-center bg-teal-600 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-teal-700 transition-all duration-300"
+                                className="mt-4 block w-full text-center bg-purple-600 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-purple-700 transition-all duration-300"
                             >
                                 Learn More
                             </Link>

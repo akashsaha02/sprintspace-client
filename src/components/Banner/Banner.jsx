@@ -11,7 +11,7 @@ const Banner = () => {
                 <div className=" max-w-2xl">
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                         Empower Dreams with{" "}
-                        <span className="dark:text-teal-400 text-teal-600">SprintSpace</span>
+                        <span className="dark:text-purple-400 text-purple-600">SprintSpace</span>
                     </h1>
                     <div className="mt-4 text-2xl lg:text-3xl font-medium text-gray-700 dark:text-gray-300">
                         <Typewriter
@@ -34,7 +34,7 @@ const Banner = () => {
                         dreamers with supporters to make a difference.
                     </p>
                     <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
-                        <Link to={'/add-campaign'} className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
+                        <Link to={'/add-campaign'} className="px-6 py-3 bg-purple-500 hover:bg-purple-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
                             Start a Campaign
                         </Link>
                         <Link to={'/campaigns'} className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-medium rounded-lg shadow-lg transition-all">

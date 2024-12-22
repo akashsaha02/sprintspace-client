@@ -36,7 +36,7 @@ const HowItWorks = () => {
             >
               {/* Step Number */}
               <div
-                className={`w-12 h-12 flex items-center justify-center rounded-full font-bold bg-teal-400 text-gray-900" dark:bg-teal-500 dark:text-white
+                className={`w-12 h-12 flex items-center justify-center rounded-full font-bold bg-purple-400 text-gray-900" dark:bg-purple-500 dark:text-white
                 `}
               >
                 {step.number}

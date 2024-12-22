@@ -27,7 +27,7 @@ const NewsletterFAQ = () => {
     };
 
     return (
-        <section className="py-20 px-6 bg-gradient-to-b from-teal-300 via-teal-200 to-teal-100 text-white dark:from-teal-950 dark:via-teal-800 dark:to-teal-700">
+        <section className="py-20 px-6 bg-gradient-to-b from-purple-300 via-purple-200 to-purple-100 text-white dark:from-purple-950 dark:via-purple-800 dark:to-purple-700">
             <div className="max-w-7xl mx-auto">
                 {/* Newsletter Section */}
                 <div className="text-center">
@@ -45,7 +45,7 @@ const NewsletterFAQ = () => {
                             />
                             <button
                                 type="submit"
-                                className="px-8 py-3 text-lg font-semibold bg-teal-900 dark:bg-teal-400 hover:bg-teal-800 dark:hover:bg-teal-500 rounded-lg shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-teal-300 focus:outline-none"
+                                className="px-8 py-3 text-lg font-semibold bg-purple-900 dark:bg-purple-400 hover:bg-purple-800 dark:hover:bg-purple-500 rounded-lg shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-purple-300 focus:outline-none"
                             >
                                 Subscribe
                             </button>
@@ -69,7 +69,7 @@ const NewsletterFAQ = () => {
                                     className="w-full flex justify-between items-center text-lg font-semibold text-gray-800 dark:text-white focus:outline-none"
                                 >
                                     {faq.question}
-                                    <span className="text-teal-500">
+                                    <span className="text-purple-500">
                                         {faq.isOpen ? "-" : "+"}
                                     </span>
                                 </button>

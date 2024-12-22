@@ -106,15 +106,15 @@ const CampaignDetailsPage = () => {
             {/* Additional Details */}
             <div className="mt-4 p-4 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
               <p className="flex items-center md:justify-center gap-2 capitalize">
-                <BiCategory className="text-teal-500 text-lg" />
+                <BiCategory className="text-purple-500 text-lg" />
                 <span className="font-semibold">Category:</span> {campaignDetails.type}
               </p>
               <p className="flex items-center md:justify-center gap-2">
-                <AiOutlineDollarCircle className="text-teal-500 text-lg" />
+                <AiOutlineDollarCircle className="text-purple-500 text-lg" />
                 <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}
               </p>
               <p className="flex items-center md:justify-center gap-2">
-                <AiOutlineCalendar className="text-teal-500 text-lg" />
+                <AiOutlineCalendar className="text-purple-500 text-lg" />
                 <span className="font-semibold">Deadline:</span>{" "}
                 {new Date(campaignDetails.deadline).toLocaleDateString()}
               </p>
@@ -123,11 +123,11 @@ const CampaignDetailsPage = () => {
             {/* Created By */}
             <div className="flex flex-col md:flex-row justify-between gap-3 mt-6">
               <p className="flex items-center gap-2">
-                <FaUserCircle className="text-teal-500 text-lg" />
+                <FaUserCircle className="text-purple-500 text-lg" />
                 Created by: <strong>{campaignDetails.userName}</strong>
               </p>
               <p className="flex items-center gap-2">
-                <FaEnvelope className="text-teal-500 text-lg" />
+                <FaEnvelope className="text-purple-500 text-lg" />
                 Email: <strong>{campaignDetails.userEmail}</strong>
               </p>
             </div>

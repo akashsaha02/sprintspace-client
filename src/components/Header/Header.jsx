@@ -15,7 +15,7 @@ const Header = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -24,7 +24,7 @@ const Header = () => {
       <NavLink
         to="/campaigns"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -34,7 +34,7 @@ const Header = () => {
         <NavLink
           to="/add-campaign"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -45,7 +45,7 @@ const Header = () => {
         <NavLink
           to="/my-campaigns"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -56,7 +56,7 @@ const Header = () => {
         <NavLink
           to="/my-donations"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -106,7 +106,7 @@ const Header = () => {
             <span>
               <img className="w-12 h-12 hidden md:block" src={logo} alt="" />
             </span>
-            <span className="text-teal-700 dark:text-teal-500">
+            <span className="text-purple-700 dark:text-purple-500">
               SprintSpace
             </span>
           </h2>
@@ -119,7 +119,7 @@ const Header = () => {
             <NavLink
               to={user ? "/profile" : "/register"}
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               {user ? "My Profile" : "Register"}
@@ -130,7 +130,7 @@ const Header = () => {
             user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email} /> : <NavLink
               to="/login"
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               Login

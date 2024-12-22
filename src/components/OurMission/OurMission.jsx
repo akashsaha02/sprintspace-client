@@ -49,7 +49,7 @@ const OurMission = () => {
                         and success.
                     </p>
                     <div className="mt-6">
-                        <Link to={'/campaigns'} className="px-6 py-2 text-md font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-teal-400 focus:outline-none">
+                        <Link to={'/campaigns'} className="px-6 py-2 text-md font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-purple-400 focus:outline-none">
                             Get Involved
                         </Link>
                     </div>

@@ -180,7 +180,7 @@ const AddCampaignPage = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-teal-600 dark:bg-teal-500 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-teal-600 focus:outline-none"
+            className="w-full py-2 px-4 bg-purple-600 dark:bg-purple-500 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-purple-600 focus:outline-none"
           >
             Add Campaign
           </button>

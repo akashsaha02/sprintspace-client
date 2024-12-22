@@ -87,7 +87,7 @@ const TermsOfService = () => {
             contact us at{" "}
             <a
               href="mailto:support@SprintSpace.com"
-              className="text-teal-500 hover:text-teal-400"
+              className="text-purple-500 hover:text-purple-400"
             >
               support@SprintSpace.com
             </a>

@@ -52,7 +52,7 @@ const MyProfilePage = () => {
 
       {/* Profile Card */}
       <div className="w-full max-w-4xl bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-        <div className="h-24 bg-teal-400/70 "></div>
+        <div className="h-24 bg-purple-400/70 "></div>
         <div className="flex justify-center -mt-16">
           <img
             src={user?.photoURL || "https://via.placeholder.com/150"}
@@ -69,7 +69,7 @@ const MyProfilePage = () => {
           </p>
           <div className="flex justify-center mt-4 space-x-4">
             <button
-              className="flex items-center px-4 py-2 bg-teal-500 text-white rounded-lg shadow hover:bg-teal-600"
+              className="flex items-center px-4 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600"
               onClick={() => setIsModalOpen(true)}
             >
               <FaEdit className="mr-2" /> Edit Profile
@@ -90,7 +90,7 @@ const MyProfilePage = () => {
           className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => navigate("/my-campaigns")}
         >
-          <FaFolderOpen className="text-teal-500 text-3xl mr-4" />
+          <FaFolderOpen className="text-purple-500 text-3xl mr-4" />
           <span className="text-lg font-semibold dark:text-gray-200">
             My Campaigns
           </span>
@@ -99,7 +99,7 @@ const MyProfilePage = () => {
           className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => navigate("/my-donations")}
         >
-          <FaDonate className="text-teal-500 text-3xl mr-4" />
+          <FaDonate className="text-purple-500 text-3xl mr-4" />
           <span className="text-lg font-semibold dark:text-gray-200">
             My Donations
           </span>
@@ -142,7 +142,7 @@ const MyProfilePage = () => {
                 </button>
                 <button
                   type="submit"
-                  className="py-2 px-4 bg-teal-500 text-white rounded hover:bg-teal-600"
+                  className="py-2 px-4 bg-purple-500 text-white rounded hover:bg-purple-600"
                 >
                   Save
                 </button>
