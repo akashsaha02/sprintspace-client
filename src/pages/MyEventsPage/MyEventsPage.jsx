@@ -9,14 +9,14 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from 'react-helmet';
 
 
-const MyMarathonsPage = () => {
+const MyEventsPage = () => {
   const { user } = useContext(AuthContext);
   const [marathons, setMarathons] = useState([]);
   const email = user?.email;
 
   useEffect(() => {
     axios
-      .get(`${apiBaseUrl}/campaigns`)
+      .get(`${apiBaseUrl}/events`)
       .then((response) => {
         const receivedData = response.data.filter(
           (item) => item.userEmail === email
@@ -40,7 +40,7 @@ const MyMarathonsPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${apiBaseUrl}/campaigns/${id}`)
+          .delete(`${apiBaseUrl}/events/${id}`)
           .then(() => {
             setMarathons((prevMarathons) =>
               prevMarathons.filter((campaign) => campaign._id !== id)
@@ -75,23 +75,23 @@ const MyMarathonsPage = () => {
         ),
       },
       {
-        Header: "Campaign Title",
+        Header: "Event Title",
         accessor: "title",
       },
       {
-        Header: "Description",
-        accessor: "description",
+        Header: "Running Distance",
+        accessor: "runningDistance",
         Cell: ({ value }) => <span className="line-clamp-1 ">{value}</span>,
       },
       {
-        Header: "Minimum Donation",
-        accessor: "minDonation",
-        Cell: ({ value }) => <span className="line-clamp-1 ">${value}</span>,
+        Header: "Event Date",
+        accessor: "marathonStartDate",
+        Cell: ({ value }) => new Date(value).toLocaleDateString(),
       },
       {
-        Header: "Deadline",
-        accessor: "deadline",
-        Cell: ({ value }) => new Date(value).toLocaleDateString(),
+        Header: "Location",
+        accessor: "location",
+        Cell: ({ value }) => <span className="line-clamp-1 ">{value}</span>,
       },
       {
         Header: "Actions",
@@ -125,4 +125,4 @@ const MyMarathonsPage = () => {
   );
 };
 
-export default MyMarathonsPage;
+export default MyEventsPage;

@@ -12,11 +12,11 @@ import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
 import CampaignsPage from './pages/AllMarathonsPage/AllMarathonsPage'
 import EventDetailsPage from './pages/EventDetailsPage/EventDetailsPage';
-import MyCampaignPage from './pages/MyMarathonsPage/MyMarathonsPage';
+import MyCampaignPage from './pages/MyEventsPage/MyEventsPage';
 import AddCampaignPage from './pages/AddMarathonPage/AddMarathonPage';
 import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
 import PrivateRoute from './routes/PrivateRoute'
-import UpdateCampaigns from './pages/UpdateMarathons/UpdateMarathons'
+import UpdateCampaigns from './pages/UpdateEvents/UpdateEvents'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
 
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: '/my-campaigns',
+        path: '/my-events',
         element: <PrivateRoute>
           <MyCampaignPage />,
         </PrivateRoute>

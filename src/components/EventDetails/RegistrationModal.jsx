@@ -32,7 +32,7 @@ const RegistrationModal = ({ event, user, closeModal }) => {
                 throw new Error("Failed to register.");
             }
         } catch (error) {
-            Swal.fire("Error", "An error occurred while registering.", "error");
+            Swal.fire("Error", "An error occurred while registering.", error);
         }
     };
 
