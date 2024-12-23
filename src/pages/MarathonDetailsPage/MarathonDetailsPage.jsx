@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
@@ -12,36 +12,39 @@ import { Helmet } from 'react-helmet';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-const CampaignDetailsPage = () => {
+const MarathonDetailsPage = () => {
   const { user } = useContext(AuthContext);
   const p = useParams();
-  const [campaignDetails, setCampaignDetails] = useState(null);
+  // const [marathonDetails, setMarathonDetails] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [donationAmount, setDonationAmount] = useState("");
 
-  // Check if the campaign is expired
-  const isCampaignExpired = () => {
+  // Check if the marathon is expired
+  const isMarathonExpired = () => {
     const currentDate = new Date();
-    const deadlineDate = new Date(campaignDetails.deadline);
+    const deadlineDate = new Date(marathonDetails.deadline);
     return currentDate > deadlineDate;
   };
 
-  useEffect(() => {
-    axios
-      .get(`${apiBaseUrl}/campaigns/${p.id}`)
-      .then((response) => {
-        setCampaignDetails(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-      });
-  }, [p.id]);
+  const marathonDetails = useLoaderData();
+  // useEffect(() => {
+  //   axios
+  //     .get(`${apiBaseUrl}/campaigns/${p.id}`)
+  //     .then((response) => {
+  //       setMarathonDetails(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data: ", error);
+  //     });
+  // }, [p.id]);
+
+  console.log(marathonDetails);
 
   const handleDonate = async () => {
-    if (isCampaignExpired()) {
+    if (isMarathonExpired()) {
       Swal.fire(
-        "Campaign Ended",
-        "Sorry, this campaign has already ended. Donations are no longer accepted.",
+        "Marathon Ended",
+        "Sorry, this marathon has already ended. Registrations are no longer accepted.",
         "info"
       );
       return;
@@ -52,10 +55,10 @@ const CampaignDetailsPage = () => {
       return;
     }
 
-    if (!donationAmount || parseFloat(donationAmount) < campaignDetails.minDonation) {
+    if (!donationAmount || parseFloat(donationAmount) < marathonDetails.minDonation) {
       Swal.fire(
         "Invalid Amount",
-        `Please enter an amount greater than or equal to $${campaignDetails.minDonation}.`,
+        `Please enter an amount greater than or equal to $${marathonDetails.minDonation}.`,
         "warning"
       );
       return;
@@ -63,8 +66,8 @@ const CampaignDetailsPage = () => {
 
     try {
       const donationData = {
-        campaignId: p.id,
-        campaignTitle: campaignDetails.title,
+        marathonId: p.id,
+        marathonTitle: marathonDetails.title,
         userEmail: user.email,
         userName: user.displayName,
         donationAmount: parseFloat(donationAmount),
@@ -88,35 +91,35 @@ const CampaignDetailsPage = () => {
   return (
     <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
-        <title>SprintSpace | Campaign Details</title>
+        <title>SprintSpace | Marathon Details</title>
       </Helmet>
-      <SectionTitle title="Campaign Details" subtitle="View the details of the selected campaign." />
+      <SectionTitle title="Marathon Details" subtitle="View the details of the selected marathon." />
       <div>
-        {campaignDetails ? (
+        {marathonDetails ? (
           <div className="mt-4 md:mt-6">
-            {/* Campaign Details */}
+            {/* marathon Details */}
             <img
-              src={campaignDetails.image}
-              alt={campaignDetails.title}
+              src={marathonDetails.image}
+              alt={marathonDetails.title}
               className="w-full rounded-lg mb-4 shadow-md"
             />
-            <h2 className="text-3xl font-semibold">{campaignDetails.title}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">{campaignDetails.description}</p>
+            <h2 className="text-3xl font-semibold">{marathonDetails.title}</h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">{marathonDetails.description}</p>
 
             {/* Additional Details */}
             <div className="mt-4 p-4 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
               <p className="flex items-center md:justify-center gap-2 capitalize">
                 <BiCategory className="text-purple-500 text-lg" />
-                <span className="font-semibold">Category:</span> {campaignDetails.type}
+                <span className="font-semibold">Category:</span> {marathonDetails.type}
               </p>
               <p className="flex items-center md:justify-center gap-2">
                 <AiOutlineDollarCircle className="text-purple-500 text-lg" />
-                <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}
+                <span className="font-semibold">Minimum Donation:</span> ${marathonDetails.minDonation}
               </p>
               <p className="flex items-center md:justify-center gap-2">
                 <AiOutlineCalendar className="text-purple-500 text-lg" />
                 <span className="font-semibold">Deadline:</span>{" "}
-                {new Date(campaignDetails.deadline).toLocaleDateString()}
+                {new Date(marathonDetails.deadline).toLocaleDateString()}
               </p>
             </div>
 
@@ -124,23 +127,23 @@ const CampaignDetailsPage = () => {
             <div className="flex flex-col md:flex-row justify-between gap-3 mt-6">
               <p className="flex items-center gap-2">
                 <FaUserCircle className="text-purple-500 text-lg" />
-                Created by: <strong>{campaignDetails.userName}</strong>
+                Created by: <strong>{marathonDetails.userName}</strong>
               </p>
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-purple-500 text-lg" />
-                Email: <strong>{campaignDetails.userEmail}</strong>
+                Email: <strong>{marathonDetails.userEmail}</strong>
               </p>
             </div>
 
-            {/* Show if the campaign is expired */}
-            {isCampaignExpired() && (
+            {/* Show if the marathon is expired */}
+            {isMarathonExpired() && (
               <p className="text-red-600 dark:text-red-400 mt-4 font-semibold">
-                This campaign has ended and no longer accepts donations.
+                This marathon has ended and no longer accepts registrations.
               </p>
             )}
 
             {/* Donate Button */}
-            {!isCampaignExpired() && (
+            {!isMarathonExpired() && (
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded-lg hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
@@ -162,14 +165,14 @@ const CampaignDetailsPage = () => {
             <div className="modal-box bg-white dark:bg-gray-800">
               <h3 className="font-bold text-lg">Make a Donation</h3>
               <p className="py-2">
-                Enter the amount you wish to donate (Minimum: ${campaignDetails.minDonation}):
+                Enter the amount you wish to donate (Minimum: ${marathonDetails.minDonation}):
               </p>
               <input
                 type="number"
                 value={donationAmount}
                 onChange={(e) => setDonationAmount(e.target.value)}
                 className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-300"
-                placeholder={`Minimum: $${campaignDetails.minDonation}`}
+                placeholder={`Minimum: $${marathonDetails.minDonation}`}
               />
               <div className="modal-action">
                 <button
@@ -193,4 +196,4 @@ const CampaignDetailsPage = () => {
   );
 };
 
-export default CampaignDetailsPage;
+export default MarathonDetailsPage;

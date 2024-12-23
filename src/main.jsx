@@ -10,16 +10,17 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import AuthProvider from './providers/AuthProvider'
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
-import CampaignsPage from './pages/CampaignsPage/CampaignsPage'
-import CampaignDetailsPage from './pages/CampaignDetailsPage/CampaignDetailsPage';
-import MyCampaignPage from './pages/MyCampaignPage/MyCampaignPage';
-import AddCampaignPage from './pages/AddCampaignPage/AddCampaignPage';
+import CampaignsPage from './pages/AllMarathonsPage/AllMarathonsPage'
+import CampaignDetailsPage from './pages/MarathonDetailsPage/MarathonDetailsPage';
+import MyCampaignPage from './pages/MyMarathonsPage/MyMarathonsPage';
+import AddCampaignPage from './pages/AddMarathonPage/AddMarathonPage';
 import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
 import PrivateRoute from './routes/PrivateRoute'
-import UpdateCampaigns from './pages/UpdateCampaigns/UpdateCampaigns'
+import UpdateCampaigns from './pages/UpdateMarathons/UpdateMarathons'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const router = createBrowserRouter([
   {
     path: '/',
@@ -55,10 +56,11 @@ const router = createBrowserRouter([
         element: <CampaignsPage />
       },
       {
-        path: '/campaigns/:id',
+        path: '/events/details/:id',
         element: <PrivateRoute>
           <CampaignDetailsPage />
-        </PrivateRoute>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`https://${apiBaseUrl}/events/details/${params.id}`)
       },
       {
         path: '/add-campaign',
@@ -91,12 +93,12 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:'/privacy-policy',
-        element:<PrivacyPolicy/>
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />
       },
       {
-        path:'/terms-of-service',
-        element:<TermsOfService/>
+        path: '/terms-of-service',
+        element: <TermsOfService />
       }
     ]
   },

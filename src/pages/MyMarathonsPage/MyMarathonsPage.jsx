@@ -9,9 +9,9 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from 'react-helmet';
 
 
-const MyCampaignPage = () => {
+const MyMarathonsPage = () => {
   const { user } = useContext(AuthContext);
-  const [campaigns, setCampaigns] = useState([]);
+  const [marathons, setMarathons] = useState([]);
   const email = user?.email;
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const MyCampaignPage = () => {
         const receivedData = response.data.filter(
           (item) => item.userEmail === email
         );
-        setCampaigns(receivedData);
+        setMarathons(receivedData);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -42,8 +42,8 @@ const MyCampaignPage = () => {
         axios
           .delete(`${apiBaseUrl}/campaigns/${id}`)
           .then(() => {
-            setCampaigns((prevCampaigns) =>
-              prevCampaigns.filter((campaign) => campaign._id !== id)
+            setMarathons((prevMarathons) =>
+              prevMarathons.filter((campaign) => campaign._id !== id)
             );
             Swal.fire("Deleted!", "Your campaign has been deleted.", "success");
           })
@@ -107,17 +107,17 @@ const MyCampaignPage = () => {
   return (
     <div className="py-10">
       <Helmet>
-        <title>SprintSpace | My Campaigns</title>
+        <title>SprintSpace | My Marathons</title>
       </Helmet>
       <div className="max-w-[1600px] mx-auto px-4">
         <div className="mb-10">
-          <SectionTitle title="My Campaigns" subtitle={"Manage your active campaigns below."} />
+          <SectionTitle title="My Marathons" subtitle={"Manage your active marathons below."} />
         </div>
-        {campaigns.length > 0 ? (
-          <CampaignTable campaigns={campaigns} columns={columns} />
+        {marathons.length > 0 ? (
+          <CampaignTable campaigns={marathons} columns={columns} />
         ) : (
           <p className="text-center text-gray-600 mt-10">
-            You haven&apos;t created any campaigns yet.
+            You haven&apos;t created any marathons yet.
           </p>
         )}
       </div>
@@ -125,4 +125,4 @@ const MyCampaignPage = () => {
   );
 };
 
-export default MyCampaignPage;
+export default MyMarathonsPage;

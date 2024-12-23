@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 
 
 
-const UpdateCampaigns = () => {
+const UpdateMarathons = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -181,4 +181,4 @@ const UpdateCampaigns = () => {
   );
 };
 
-export default UpdateCampaigns;
+export default UpdateMarathons;
