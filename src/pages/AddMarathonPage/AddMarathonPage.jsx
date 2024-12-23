@@ -197,7 +197,7 @@ import { toast } from "react-hot-toast"; // For toast notifications
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../providers/AuthProvider';
 import axios from 'axios';
-import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import SectionTitle from '../../components/shared/SectionTitle';
 import { Helmet } from 'react-helmet';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";

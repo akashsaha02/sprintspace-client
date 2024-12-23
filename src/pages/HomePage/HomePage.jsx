@@ -1,9 +1,9 @@
-import HowItWorks from "../../components/HowItWorks/HowItWorks";
-import RunningCampaigns from "../../components/RunningCampaigns/RunningCampaigns";
-import Banner from "../../components/Banner/Banner";
-import OurMission from "../../components/OurMission/OurMission";
-import NewsletterFAQ from "../../components/NewsletterFAQ/NewsletterFAQ";
-import CarouselComp from "../../components/CarouselComp/CarouselComp";
+import HowItWorks from "../../components/Home/HowItWorks";
+import RunningCampaigns from "../../components/Home/RunningCampaigns";
+import Banner from "../../components/Home/Banner";
+import OurMission from "../../components/Home/OurMission";
+import NewsletterFAQ from "../../components/Home/NewsletterFAQ";
+import CarouselComp from "../../components/Home/CarouselComp";
 import { Helmet } from 'react-helmet';
 
 
@@ -16,7 +16,7 @@ const HomePage = () => {
       </Helmet>
       <Banner />
       {/* <CarouselComp /> */}
-      <RunningCampaigns />
+      {/* <RunningCampaigns /> */}
       <HowItWorks />
       <OurMission />
       <NewsletterFAQ />

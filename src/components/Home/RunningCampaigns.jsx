@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CampaignCard from "../EventCard/EventCard";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../shared/SectionTitle";
 import { Link } from "react-router-dom";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;

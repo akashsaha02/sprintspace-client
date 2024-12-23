@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../assets/logo.png';
 import 'react-tooltip/dist/react-tooltip.css'
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import ProfileTooltip from '../ProfileTooltip/ProfileTooltip';
+import ThemeToggle from './ThemeToggle';
+import ProfileTooltip from './ProfileTooltip';
 
 const Header = () => {
   const { user } = useContext(AuthContext);

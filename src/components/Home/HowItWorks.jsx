@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../shared/SectionTitle";
 
 const HowItWorks = () => {
   const steps = [

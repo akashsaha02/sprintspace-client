@@ -1,6 +1,6 @@
-import Header from '../Header/Header'
+import Header from '../shared/Header'
 import { Outlet } from 'react-router-dom'
-import Footer from '../Footer/Footer'
+import Footer from '../shared/Footer'
 import { Toaster } from 'react-hot-toast'
 import { useState, useEffect } from 'react'
 

@@ -125,7 +125,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/shared/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from "react-helmet";
 

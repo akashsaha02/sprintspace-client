@@ -11,7 +11,7 @@ import AuthProvider from './providers/AuthProvider'
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
 import CampaignsPage from './pages/AllMarathonsPage/AllMarathonsPage'
-import CampaignDetailsPage from './pages/MarathonDetailsPage/MarathonDetailsPage';
+import EventDetailsPage from './pages/EventDetailsPage/EventDetailsPage';
 import MyCampaignPage from './pages/MyMarathonsPage/MyMarathonsPage';
 import AddCampaignPage from './pages/AddMarathonPage/AddMarathonPage';
 import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
@@ -58,9 +58,9 @@ const router = createBrowserRouter([
       {
         path: '/events/details/:id',
         element: <PrivateRoute>
-          <CampaignDetailsPage />
+          <EventDetailsPage />
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`https://${apiBaseUrl}/events/details/${params.id}`)
+        loader: ({ params }) => fetch(`${apiBaseUrl}/events/details/${params.id}`)
       },
       {
         path: '/add-campaign',
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: '/my-campaigns/:id',
         element: <PrivateRoute>
-          <CampaignDetailsPage />,
+          <EventDetailsPage />,
         </PrivateRoute>
       },
       {

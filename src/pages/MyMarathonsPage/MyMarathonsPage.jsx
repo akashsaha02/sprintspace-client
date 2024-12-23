@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import CampaignTable from "../../components/MyCampaignTable/MyCampaignTable";
 import CampaignActions from "../../components/MyCampaignActions/MyCampaignActions";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/shared/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from 'react-helmet';
 

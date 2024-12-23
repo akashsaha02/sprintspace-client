@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SortButton from "../../components/SortButton/SortButton";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/shared/SectionTitle";
 import EventCard from "../../components/EventCard/EventCard";
 import SearchCampaign from "../../components/SearchCampaign/SearchCampaign";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;

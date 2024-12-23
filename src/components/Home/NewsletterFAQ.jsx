@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../shared/SectionTitle";
 
 const NewsletterFAQ = () => {
     const [faqs, setFaqs] = useState([
