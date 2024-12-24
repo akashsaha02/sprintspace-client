@@ -22,23 +22,23 @@ const Header = () => {
         Home
       </NavLink>
       <NavLink
-        to="/campaigns"
+        to="/marathons"
         className={({ isActive }) =>
           `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
-        All Campaigns
+        All Marathons
       </NavLink>
       {user && (
         <NavLink
-          to="/add-campaign"
+          to="/add-marathon"
           className={({ isActive }) =>
             `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
-          Add Campaign
+          Add Marathon
         </NavLink>
       )}
       {user && (
@@ -54,13 +54,13 @@ const Header = () => {
       )}
       {user && (
         <NavLink
-          to="/my-donations"
+          to="/my-registrations"
           className={({ isActive }) =>
             `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
-          My Donations
+          My Registrations
         </NavLink>
       )}
 

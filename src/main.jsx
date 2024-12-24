@@ -10,15 +10,16 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import AuthProvider from './providers/AuthProvider'
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
-import CampaignsPage from './pages/AllMarathonsPage/AllMarathonsPage'
+import AllMarathonPage from './pages/AllMarathonsPage/AllMarathonsPage'
 import EventDetailsPage from './pages/EventDetailsPage/EventDetailsPage';
 import MyCampaignPage from './pages/MyEventsPage/MyEventsPage';
-import AddCampaignPage from './pages/AddMarathonPage/AddMarathonPage';
-import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
+import AddMarathonPage from './pages/AddMarathonPage/AddMarathonPage';
+import MyRegistrationPage from './pages/MyRegistrationPage/MyRegistrationPage';
 import PrivateRoute from './routes/PrivateRoute'
 import UpdateCampaigns from './pages/UpdateEvents/UpdateEvents'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
+import UpdateRegistration from './pages/UpdateRegistration/UpdateRegistration'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const router = createBrowserRouter([
@@ -52,8 +53,8 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: '/campaigns',
-        element: <CampaignsPage />
+        path: '/marathons',
+        element: <AllMarathonPage />
       },
       {
         path: '/events/details/:id',
@@ -63,9 +64,9 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`${apiBaseUrl}/events/details/${params.id}`)
       },
       {
-        path: '/add-campaign',
+        path: '/add-marathon',
         element: <PrivateRoute>
-          <AddCampaignPage />
+          <AddMarathonPage />
         </PrivateRoute>
       },
       {
@@ -81,9 +82,9 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: '/my-donations',
+        path: '/my-registrations',
         element: <PrivateRoute>
-          <MyDonationPage />
+          <MyRegistrationPage />
         </PrivateRoute>
       },
       {
@@ -99,6 +100,12 @@ const router = createBrowserRouter([
       {
         path: '/terms-of-service',
         element: <TermsOfService />
+      },
+      {
+        path: '/update-registration/:id',
+        element: <PrivateRoute>
+          <UpdateRegistration />
+        </PrivateRoute>
       }
     ]
   },
