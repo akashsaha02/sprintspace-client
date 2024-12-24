@@ -19,7 +19,6 @@ import PrivateRoute from './routes/PrivateRoute'
 import UpdateCampaigns from './pages/UpdateEvents/UpdateEvents'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
-import UpdateRegistration from './pages/UpdateRegistration/UpdateRegistration'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const router = createBrowserRouter([
@@ -100,12 +99,6 @@ const router = createBrowserRouter([
       {
         path: '/terms-of-service',
         element: <TermsOfService />
-      },
-      {
-        path: '/update-registration/:id',
-        element: <PrivateRoute>
-          <UpdateRegistration />
-        </PrivateRoute>
       }
     ]
   },
