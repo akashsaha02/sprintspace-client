@@ -22,29 +22,45 @@ const EventDetailsPage = () => {
 
 
   return (
-    <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="max-w-7xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>SprintSpace | Marathon Details</title>
       </Helmet>
       <SectionTitle title="Marathon Details" subtitle="View the details of the selected marathon." />
 
       {eventDetails ? (
-        <div>
-          <EventHeader event={eventDetails} />
-          <EventInfoGrid event={eventDetails} />
-          <EventCreatorInfo event={eventDetails} />
+        <div className="mt-4 md:mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="">
+              <EventHeader event={eventDetails} />
+
+            </div>
+            <div className="">
+              <EventInfoGrid event={eventDetails} />
+              <EventCreatorInfo event={eventDetails} />
+
+              <RegistrationButton
+                event={eventDetails}
+                user={user}
+                onRegister={() => setIsModalOpen(true)}
+              />
+            </div>
+          </div>
 
           {/* Countdown Timer */}
-          <div className="flex justify-center my-6">
+          <div className="flex justify-center my-2">
             <CountdownCircleTimer
               isPlaying
               duration={remainingTime} // Duration in seconds
-              colors={["#4CAF50", "#F7B801", "#A30000"]}
-              colorsTime={[
-                Math.floor(remainingTime * 0.5),
-                Math.floor(remainingTime * 0.2),
-                0,
+              colors={[
+                ["#4CAF50", 0.5], // Green for the first 50% of time
+                ["#F7B801", 0.3], // Yellow for the next 30% of time
+                ["#A30000", 0.2], // Red for the remaining 20% of time
               ]}
+              trailColor="#aaaaff"
+              strokeWidth={8}
+              size={180}
+              rotation="counterclockwise" // Run the timer counterclockwise
               onComplete={() => ({ shouldRepeat: false })}
             >
               {({ remainingTime }) => {
@@ -54,10 +70,15 @@ const EventDetailsPage = () => {
                 const seconds = remainingTime % 60;
 
                 return (
-                  <div className="text-center">
-                    <div className="text-xl font-bold">Starts In</div>
-                    <div className="text-2xl">
-                      {days}d {hours}h {minutes}m {seconds}s
+                  <div className="flex flex-col items-center text-gray-800 dark:text-gray-200 p-4">
+                    <div className="text-lg font-semibold uppercase tracking-wide">
+                      Starts In
+                    </div>
+                    <div className="text-2xl font-bold mt-2 text-center">
+                      {days > 0 ? `${days}d ` : ""}
+                      {hours.toString().padStart(2, "0")}h{" "}
+                      {minutes.toString().padStart(2, "0")}m{" "}
+                      {seconds.toString().padStart(2, "0")}s
                     </div>
                   </div>
                 );
@@ -66,11 +87,7 @@ const EventDetailsPage = () => {
           </div>
 
 
-          <RegistrationButton
-            event={eventDetails}
-            user={user}
-            onRegister={() => setIsModalOpen(true)}
-          />
+
           {isModalOpen && (
             <RegistrationModal
               event={eventDetails}
