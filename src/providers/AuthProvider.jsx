@@ -50,7 +50,11 @@ const AuthProvider = ({ children }) => {
                     console.log(error)
                 })
 
-                setLoading(true);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1000);
+
+                // setLoading(false);
             }
         })
 

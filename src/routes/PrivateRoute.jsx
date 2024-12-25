@@ -16,11 +16,13 @@ const PrivateRoute = ({ children }) => {
 
     if (user) {
         return children
+    } else {
+        return (
+            <Navigate to="/login" replace />
+        )
     }
 
-    return (
-        <Navigate to="/login" replace />
-    )
+
 }
 
 export default PrivateRoute
