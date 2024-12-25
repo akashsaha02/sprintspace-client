@@ -4,10 +4,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 const EventInfoGrid = ({ event }) => {
   return (
     <div className="mt-4 p-4 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-2 gap-2">
-      <p className="flex items-center gap-2">
-        <AiOutlineDollarCircle className="text-purple-500 text-lg" />
-        <span className="font-semibold">Minimum Donation:</span> ${event.minDonation}
-      </p>
+      
       <p className="flex items-center gap-2">
         <FaMapMarkerAlt className="text-purple-500 text-lg" />
         <span className="font-semibold">Location:</span> {event.location}
@@ -24,8 +21,8 @@ const EventInfoGrid = ({ event }) => {
       </p>
       <p className="flex items-center gap-2">
         <AiOutlineCalendar className="text-purple-500 text-lg" />
-        <span className="font-semibold">event Date:</span>{" "}
-        {new Date(event.eventStartDate).toLocaleDateString()}
+        <span className="font-semibold">Event Date:</span>{" "}
+        {new Date(event.marathonStartDate).toLocaleDateString()}
       </p>
       <p className="flex items-center gap-2">
         <span className="font-semibold">Total Registrations:</span>{" "}

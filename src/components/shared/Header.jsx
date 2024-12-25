@@ -1,3 +1,4 @@
+
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -49,7 +50,7 @@ const Header = () => {
             }`
           }
         >
-          My Campaigns
+          My Marathons
         </NavLink>
       )}
       {user && (
@@ -99,17 +100,12 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <h2
+          <div
             onClick={() => navigate("/")}
-            className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2 dark:text-gray-200"
+            className="w-[50%] cursor-pointer flex justify-center items-cente"
           >
-            <span>
-              <img className="w-12 h-12 hidden md:block" src={logo} alt="" />
-            </span>
-            <span className="text-purple-700 dark:text-purple-500">
-              SprintSpace
-            </span>
-          </h2>
+            <img className="w-full hidden md:block" src={logo} alt="" />
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

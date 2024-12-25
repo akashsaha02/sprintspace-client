@@ -16,12 +16,13 @@ const MyEventsPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiBaseUrl}/events`)
+      .get(`${apiBaseUrl}/events?email=${email}`)
       .then((response) => {
-        const receivedData = response.data.filter(
-          (item) => item.userEmail === email
-        );
-        setMarathons(receivedData);
+        // const receivedData = response.data.filter(
+        //   (item) => item.userEmail === email
+        // );
+        // setMarathons(receivedData);
+        setMarathons(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -40,7 +41,9 @@ const MyEventsPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${apiBaseUrl}/events/${id}`)
+          .delete(`${apiBaseUrl}/events/${id}`,
+            { withCredentials: true }
+          )
           .then(() => {
             setMarathons((prevMarathons) =>
               prevMarathons.filter((campaign) => campaign._id !== id)

@@ -16,9 +16,10 @@ const EventDetailsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Convert event start date to timestamp
-  const eventStartDate = new Date(eventDetails?.startDate).getTime();
+  const eventStartDate = new Date(eventDetails?.marathonStartDate).getTime() || 0;
   const currentTime = Date.now();
-  const remainingTime = Math.max((eventStartDate - currentTime) / 1000, 0); // Time in seconds
+  const remainingTime = Math.max(Math.floor((eventStartDate - currentTime) / 1000), 0);
+
 
   return (
     <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
@@ -39,7 +40,11 @@ const EventDetailsPage = () => {
               isPlaying
               duration={remainingTime} // Duration in seconds
               colors={["#4CAF50", "#F7B801", "#A30000"]}
-              colorsTime={[remainingTime * 0.5, remainingTime * 0.2, 0]} // Adjust colors
+              colorsTime={[
+                Math.floor(remainingTime * 0.5),
+                Math.floor(remainingTime * 0.2),
+                0,
+              ]}
               onComplete={() => ({ shouldRepeat: false })}
             >
               {({ remainingTime }) => {
@@ -59,6 +64,7 @@ const EventDetailsPage = () => {
               }}
             </CountdownCircleTimer>
           </div>
+
 
           <RegistrationButton
             event={eventDetails}

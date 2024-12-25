@@ -18,12 +18,13 @@ const MyRegistrationPage = () => {
   // Fetch registrations
   useEffect(() => {
     axios
-      .get(`${apiBaseUrl}/registrations`,{withCredentials: true})
+      .get(`${apiBaseUrl}/registrations?email=${email}`,{withCredentials: true})
       .then((response) => {
-        const receivedData = response.data.filter(
-          (item) => item.userEmail === email
-        );
-        setRegistrations(receivedData);
+        // const receivedData = response.data.filter(
+        //   (item) => item.userEmail === email
+        // );
+        // setRegistrations(receivedData);
+        setRegistrations(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
