@@ -18,7 +18,7 @@ const MyRegistrationPage = () => {
   // Fetch registrations
   useEffect(() => {
     axios
-      .get(`${apiBaseUrl}/registrations`)
+      .get(`${apiBaseUrl}/registrations`,{withCredentials: true})
       .then((response) => {
         const receivedData = response.data.filter(
           (item) => item.userEmail === email
@@ -52,6 +52,7 @@ const MyRegistrationPage = () => {
       await axios.put(
         `${apiBaseUrl}/registrations/${selectedRegistration._id}`,
         selectedRegistration
+        ,{ withCredentials: true }
       );
       setRegistrations((prev) =>
         prev.map((reg) =>
@@ -78,7 +79,7 @@ const MyRegistrationPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${apiBaseUrl}/registrations/${id}`)
+          .delete(`${apiBaseUrl}/registrations/${id}`,{withCredentials: true})
           .then(() => {
             setRegistrations((prev) => prev.filter((reg) => reg._id !== id));
             Swal.fire("Deleted!", "Your registration has been deleted.", "success");

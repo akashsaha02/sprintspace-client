@@ -69,7 +69,7 @@ const EventDetailsPage = () => {
             <RegistrationModal
               event={eventDetails}
               user={user}
-              onClose={() => setIsModalOpen(false)}
+              closeModal={() => setIsModalOpen(false)}
             />
           )}
         </div>

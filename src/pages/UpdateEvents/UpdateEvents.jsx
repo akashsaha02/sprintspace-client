@@ -25,7 +25,9 @@ const UpdateEvents = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiBaseUrl}/events/details/${id}`)
+      .get(`${apiBaseUrl}/events/details/${id}`,
+        { withCredentials: true }
+      )
       .then((response) => {
         setCampaignDetails(response.data);
         setFormData({
@@ -62,13 +64,13 @@ const UpdateEvents = () => {
         `${apiBaseUrl}/events/${id}`,
         formData,
         {
-          headers: { "Content-Type": "application/json" },
+         withCredentials: true
         }
       );
 
       if (response.status === 200) {
         toast.success("Event updated successfully!");
-        navigate("/campaigns");
+        navigate("/marathons");
       } else {
         throw new Error("Failed to update event.");
       }

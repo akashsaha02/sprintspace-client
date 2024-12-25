@@ -53,8 +53,8 @@ const AddMarathonPage = () => {
           userEmail: user.email,
           userName: user.displayName,
         },
-        {
-          headers: { "Content-Type": "application/json" },
+      {
+          withCredentials: true
         }
       );
 

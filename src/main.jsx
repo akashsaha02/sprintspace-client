@@ -19,6 +19,7 @@ import PrivateRoute from './routes/PrivateRoute'
 import UpdateCampaigns from './pages/UpdateEvents/UpdateEvents'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
+import axios from 'axios'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const router = createBrowserRouter([
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <EventDetailsPage />
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`${apiBaseUrl}/events/details/${params.id}`)
+        loader: ({ params }) => axios.get(`${apiBaseUrl}/events/details/${params.id}`, { withCredentials: true }).then((res) => res.data)
       },
       {
         path: '/add-marathon',

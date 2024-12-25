@@ -23,7 +23,10 @@ const RegistrationModal = ({ event, user, closeModal }) => {
                 registrationDate: new Date().toISOString(),
             };
 
-            const response = await axios.post(`${apiBaseUrl}/registrations`, registrationData);
+            const response = await axios.post(`${apiBaseUrl}/registrations`,
+                registrationData,
+                { withCredentials: true }
+            );
 
             if (response.status === 200) {
                 closeModal();
@@ -33,6 +36,7 @@ const RegistrationModal = ({ event, user, closeModal }) => {
             }
         } catch (error) {
             Swal.fire("Error", "An error occurred while registering.", error);
+            console.error("Error registering for event:", error);
         }
     };
 
