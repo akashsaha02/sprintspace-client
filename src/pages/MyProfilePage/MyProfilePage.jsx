@@ -4,7 +4,7 @@ import { updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
-import { FaEdit, FaSignOutAlt, FaFolderOpen, FaDonate, FaRunning, FaRegIdCard } from "react-icons/fa";
+import { FaEdit, FaSignOutAlt, FaRunning, FaRegIdCard } from "react-icons/fa";
 import bgImg  from "../../assets/Wave.png";
 const MyProfilePage = () => {
   const { logoutUser, user } = useContext(AuthContext);

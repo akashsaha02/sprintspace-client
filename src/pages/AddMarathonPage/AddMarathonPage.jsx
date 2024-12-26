@@ -20,7 +20,7 @@ const AddMarathonPage = () => {
     endRegistrationDate: new Date(),
     marathonStartDate: new Date(),
     location: "",
-    runningDistance: "3k",
+    runningDistance: "3 KM",
     description: "",
     image: "",
     createdAt: new Date(),
@@ -154,9 +154,9 @@ const AddMarathonPage = () => {
               required
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
             >
-              <option value="3k">3k</option>
-              <option value="10k">10k</option>
-              <option value="25k">25k</option>
+              <option value="3 KM">3 KM</option>
+              <option value="10 KM">10 KM</option>
+              <option value="25 KM">25 KM</option>
             </select>
           </div>
 

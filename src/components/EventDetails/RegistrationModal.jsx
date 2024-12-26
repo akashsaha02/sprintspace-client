@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const RegistrationModal = ({ event, user, closeModal }) => {
@@ -104,6 +105,17 @@ const RegistrationModal = ({ event, user, closeModal }) => {
             </div>
         </div>
     );
+};
+RegistrationModal.propTypes = {
+    event: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        eventStartDate: PropTypes.string.isRequired,
+    }).isRequired,
+    user: PropTypes.shape({
+        email: PropTypes.string.isRequired,
+    }).isRequired,
+    closeModal: PropTypes.func.isRequired,
 };
 
 export default RegistrationModal;

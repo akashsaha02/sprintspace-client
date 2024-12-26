@@ -22,8 +22,8 @@ const AllMarathonsPage = () => {
     axios
       .get(`${apiBaseUrl}/events?page=${page}&limit=9`)
       .then((response) => {
-        setEvents(response.data.events);
         setSortedEvents(response.data.events);
+        setEvents(response.data.events);
         setTotalPages(response.data.totalPages);
       })
       .catch((error) => {

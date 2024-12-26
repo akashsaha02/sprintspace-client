@@ -25,8 +25,6 @@ const MyEventsPage = () => {
       });
   }, [email]);
 
-  
-
   const handleDelete = useCallback((id) => {
     Swal.fire({
       title: "Are you sure?",
