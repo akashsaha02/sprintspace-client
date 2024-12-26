@@ -8,7 +8,7 @@ const EventCardImg = ({ marathons }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-center items-center">
             {marathons.map((marathon) => {
-                const isRegistrationOpen = new Date() < new Date(marathon.endRegistrationDate);
+                // const isRegistrationOpen = new Date() < new Date(marathon.endRegistrationDate);
 
                 return (
                     <div
@@ -20,18 +20,18 @@ const EventCardImg = ({ marathons }) => {
                             <img
                                 src={marathon.image}
                                 alt={marathon.title}
-                                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                             />
 
                             {/* Registration Status Badge */}
-                            <span
+                            {/* <span
                                 className={`absolute top-4 left-4 px-3 py-1 text-xs font-semibold uppercase rounded-full shadow-lg ${isRegistrationOpen
                                     ? "bg-green-500 text-white animate-pulse"
                                     : "bg-red-500 text-white"
                                     }`}
                             >
                                 {isRegistrationOpen ? "Open" : "Closed"}
-                            </span>
+                            </span> */}
                         </div>
 
                         {/* Title Section */}
@@ -65,14 +65,6 @@ const EventCardImg = ({ marathons }) => {
                                     </p>
                                 </div>
                             </div>
-
-                            {/* Learn More Button */}
-                            <Link
-                                to={`/events/details/${marathon._id}`}
-                                className="block text-center bg-purple-600 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-purple-700 transition-all duration-300 mt-4"
-                            >
-                                See Details
-                            </Link>
                         </div>
                     </div>
                 );

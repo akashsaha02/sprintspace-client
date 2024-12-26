@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SectionTitle from "../shared/SectionTitle";
 import { Link } from "react-router-dom";
-import EventCardImg from "../EventCard/EventCardImg";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import EventCard from './../EventCard/EventCard';
