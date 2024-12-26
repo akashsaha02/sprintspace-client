@@ -22,12 +22,15 @@ const MyEventsPage = () => {
         //   (item) => item.userEmail === email
         // );
         // setMarathons(receivedData);
-        setMarathons(response.data);
+        console.log(response.data);
+        setMarathons(response.data.myEvents);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
       });
   }, [email]);
+
+  
 
   const handleDelete = useCallback((id) => {
     Swal.fire({
