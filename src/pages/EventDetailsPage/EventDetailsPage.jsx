@@ -9,11 +9,25 @@ import EventCreatorInfo from "../../components/EventDetails/EventCreatorInfo";
 import RegistrationButton from "../../components/EventDetails/RegistrationButton";
 import RegistrationModal from "../../components/EventDetails/RegistrationModal";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import axios from "axios";
+import EventCard from "../../components/EventCard/EventCard";
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 
 const EventDetailsPage = () => {
   const { user } = useContext(AuthContext);
   const eventDetails = useLoaderData();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const[runningEvents, setRunningEvents] = useState([])
+
+  useEffect(() => {
+    axios.get(`${apiBaseUrl}/running-events`, { withCredentials: true }).then((response) => {
+      console.log(response.data)
+      setRunningEvents(response.data.randomRunningEvents)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }, [])
 
   // Convert event start date to timestamp
   const eventStartDate = new Date(eventDetails?.marathonStartDate).getTime() || 0;
@@ -84,6 +98,12 @@ const EventDetailsPage = () => {
                 );
               }}
             </CountdownCircleTimer>
+          </div>
+          <div>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center mt-6">More Running events</h2>
+            <div className="">
+              <EventCard marathons={runningEvents} />
+            </div>
           </div>
 
 

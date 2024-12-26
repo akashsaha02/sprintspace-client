@@ -77,7 +77,7 @@ const Header = () => {
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="lg:hidden btn btn-sm btn-ghost">
+            <div tabIndex={0} role="button" className="hidden btn btn-sm btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 dark:text-gray-200"
@@ -104,7 +104,8 @@ const Header = () => {
             onClick={() => navigate("/")}
             className="w-[50%] cursor-pointer flex justify-center items-cente"
           >
-            <img className="w-full hidden md:block" src={logo} alt="" />
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold hidden dark:block italic">SprintSpace</h2>
+            <img className="w-full hidden md:block dark:hidden" src={logo} alt="" />
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

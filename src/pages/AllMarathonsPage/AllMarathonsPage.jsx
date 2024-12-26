@@ -14,9 +14,13 @@ const AllMarathonsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
+  useEffect(() => {
+    fetchEvents(currentPage);
+  }, [currentPage]);
+
   const fetchEvents = (page) => {
     axios
-      .get(`${apiBaseUrl}/events?page=${page}&limit=9`) // Set limit to 9
+      .get(`${apiBaseUrl}/events?page=${page}&limit=9`)
       .then((response) => {
         setEvents(response.data.events);
         setSortedEvents(response.data.events);
@@ -27,15 +31,11 @@ const AllMarathonsPage = () => {
       });
   };
 
-  useEffect(() => {
-    fetchEvents(currentPage);
-  }, [currentPage]);
-
   const handleSort = () => {
     const sorted = [...events].sort((a, b) => {
-      return sortOrder === "asc"
-        ? a.minDonation - b.minDonation
-        : b.minDonation - a.minDonation;
+      const dateA = new Date(a.createdAt);
+      const dateB = new Date(b.createdAt);
+      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
     });
     setSortedEvents(sorted);
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
