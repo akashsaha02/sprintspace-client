@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <EventDetailsPage />
         </PrivateRoute>,
-        loader: ({ params }) => axios.get(`${apiBaseUrl}/events/details/${params.id}`, { withCredentials: true }).then((res) => res.data)
+        loader: ({ params }) => axios.get(`${apiBaseUrl}/events/details/${params.id}`).then((res) => res.data)
       },
       {
         path: '/add-marathon',

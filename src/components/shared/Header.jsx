@@ -75,7 +75,6 @@ const Header = () => {
           My Registrations
         </NavLink>
       )}
-      <ThemeToggle />
     </>
   );
 
@@ -131,6 +130,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-2">
+
           <NavLink
             to={user ? "/profile" : "/register"}
             className={({ isActive }) =>
@@ -145,7 +145,7 @@ const Header = () => {
               name={user.displayName}
               email={user.email}
             />
-          ) : (
+          ) : (<>
             <NavLink
               to="/login"
               className={({ isActive }) =>
@@ -154,6 +154,8 @@ const Header = () => {
             >
               Login
             </NavLink>
+            <ThemeToggle />
+          </>
           )}
         </div>
       </div>
