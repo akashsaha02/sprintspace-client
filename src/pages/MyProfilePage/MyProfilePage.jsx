@@ -4,7 +4,7 @@ import { updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
-import { FaEdit, FaSignOutAlt, FaFolderOpen, FaDonate } from "react-icons/fa";
+import { FaEdit, FaSignOutAlt, FaFolderOpen, FaDonate, FaRunning, FaRegIdCard } from "react-icons/fa";
 import bgImg  from "../../assets/Wave.png";
 const MyProfilePage = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -88,20 +88,20 @@ const MyProfilePage = () => {
       <div className="mt-8 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
         <button
           className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
-          onClick={() => navigate("/my-campaigns")}
+          onClick={() => navigate("/my-events")}
         >
-          <FaFolderOpen className="text-purple-500 text-3xl mr-4" />
+          <FaRunning className="text-purple-500 text-3xl mr-4" />
           <span className="text-lg font-semibold dark:text-gray-200">
-            My Campaigns
+            My Added Marathons
           </span>
         </button>
         <button
           className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
-          onClick={() => navigate("/my-donations")}
+          onClick={() => navigate("/my-registrations")}
         >
-          <FaDonate className="text-purple-500 text-3xl mr-4" />
+          <FaRegIdCard className="text-purple-500 text-3xl mr-4" />
           <span className="text-lg font-semibold dark:text-gray-200">
-            My Donations
+            My Registrations
           </span>
         </button>
       </div>

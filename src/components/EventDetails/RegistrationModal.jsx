@@ -77,7 +77,7 @@ const RegistrationModal = ({ event, user, closeModal }) => {
                     <div>
                         <label>Contact Number</label>
                         <input
-                            type="text"
+                            type="number"
                             className="input input-bordered w-full"
                             value={formData.contactNumber}
                             onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}

@@ -32,7 +32,7 @@ const ProfileTooltip = () => {
             <img
                 src={user.photoURL}
                 alt="profile"
-                className="w-[50px] h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-purple-500"
+                className=" w-12 h-12 md:w-[50px] md:h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-purple-500"
             />
 
             {/* Tooltip */}
