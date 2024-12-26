@@ -1,10 +1,11 @@
 import HowItWorks from "../../components/Home/HowItWorks";
-import RunningCampaigns from "../../components/Home/RunningCampaigns";
 import Banner from "../../components/Home/Banner";
 import OurMission from "../../components/Home/OurMission";
 import NewsletterFAQ from "../../components/Home/NewsletterFAQ";
 import CarouselComp from "../../components/Home/CarouselComp";
 import { Helmet } from 'react-helmet';
+import UpcomingMarathons from "../../components/Home/UpcomingMarathons";
+import RunningMarathons from "../../components/Home/RunningMarathons";
 
 
 const HomePage = () => {
@@ -16,7 +17,8 @@ const HomePage = () => {
       </Helmet>
       <Banner />
       {/* <CarouselComp /> */}
-      {/* <RunningCampaigns /> */}
+      <RunningMarathons />
+      <UpcomingMarathons />
       <HowItWorks />
       <OurMission />
       <NewsletterFAQ />
