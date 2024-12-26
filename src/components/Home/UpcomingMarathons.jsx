@@ -1,11 +1,17 @@
 import EventCardImg from "../EventCard/EventCardImg";
 import SectionTitle from "../shared/SectionTitle";
+import springcity from "../../assets/springcity.jpg";
+import riverfront from "../../assets/riverfront.jpg";
+import mountain from "../../assets/mountaintrail.jpeg";
+import coastal from "../../assets/coastal.jpg";
+import desert from "../../assets/desert.jpg";
+import citylights from "../../assets/citylights.jpg";
 
 const UpcomingMarathons = () => {
     const marathons = [
         {
             _id: "1",
-            image: "https://via.placeholder.com/400",
+            image: springcity,
             title: "Spring City Marathon",
             description: "Experience the scenic routes of Spring City.",
             location: "Spring City, CA",
@@ -17,7 +23,7 @@ const UpcomingMarathons = () => {
         },
         {
             _id: "2",
-            image: "https://via.placeholder.com/400",
+            image: riverfront,
             title: "Riverfront Run",
             description: "Run along the beautiful riverfront trails.",
             location: "Riverfront, NY",
@@ -29,7 +35,7 @@ const UpcomingMarathons = () => {
         },
         {
             _id: "3",
-            image: "https://via.placeholder.com/400",
+            image: mountain,
             title: "Mountain Trail Challenge",
             description: "Conquer the rugged mountain trails.",
             location: "Aspen, CO",
@@ -41,7 +47,7 @@ const UpcomingMarathons = () => {
         },
         {
             _id: "4",
-            image: "https://via.placeholder.com/400",
+            image: coastal,
             title: "Coastal Breeze Marathon",
             description: "Feel the ocean breeze as you run.",
             location: "Santa Monica, CA",
@@ -53,7 +59,7 @@ const UpcomingMarathons = () => {
         },
         {
             _id: "5",
-            image: "https://via.placeholder.com/400",
+            image: desert,
             title: "Desert Dash",
             description: "Challenge yourself in the arid desert.",
             location: "Phoenix, AZ",
@@ -65,7 +71,7 @@ const UpcomingMarathons = () => {
         },
         {
             _id: "6",
-            image: "https://via.placeholder.com/400",
+            image: citylights,
             title: "City Lights Run",
             description: "Run under the sparkling city lights.",
             location: "New York, NY",
@@ -80,7 +86,7 @@ const UpcomingMarathons = () => {
     return (
         <section className="mt-10 md:mt-16 max-w-7xl mx-auto px-4">
             <SectionTitle title="Upcoming Marathons" subtitle="Join Our Upcoming Marathon Events" />
-          <EventCardImg marathons={marathons} />
+            <EventCardImg marathons={marathons} />
         </section>
     );
 };

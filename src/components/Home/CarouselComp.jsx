@@ -1,8 +1,8 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import marathonBanner1 from "../../assets/sliderImg1.jpg"; // Replace with your marathon-related images
-import marathonBanner2 from "../../assets/run.png";
-import marathonBanner3 from "../../assets/run.png";
+import marathonBanner2 from "../../assets/sliderImg2.jpg";
+import marathonBanner3 from "../../assets/sliderImg3.jpg";
 import { Link } from "react-router-dom";
 
 const CarouselComp = () => {
