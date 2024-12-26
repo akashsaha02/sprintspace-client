@@ -15,21 +15,23 @@ const MyRegistrationPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const email = user?.email;
 
-  // Fetch registrations
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
-    axios
-      .get(`${apiBaseUrl}/registrations?email=${email}`,{withCredentials: true})
-      .then((response) => {
-        // const receivedData = response.data.filter(
-        //   (item) => item.userEmail === email
-        // );
-        // setRegistrations(receivedData);
+    const fetchRegistrations = async () => {
+      try {
+        const response = await axios.get(`${apiBaseUrl}/registrations`, {
+          params: { email, search: searchQuery },
+          withCredentials: true,
+        });
         setRegistrations(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching data: ", error);
-      });
-  }, [email]);
+      }
+    };
+
+    fetchRegistrations();
+  }, [email, searchQuery]);
 
   // Open modal with selected registration
   const handleUpdate = (registration) => {
@@ -53,7 +55,7 @@ const MyRegistrationPage = () => {
       await axios.put(
         `${apiBaseUrl}/registrations/${selectedRegistration._id}`,
         selectedRegistration
-        ,{ withCredentials: true }
+        , { withCredentials: true }
       );
       setRegistrations((prev) =>
         prev.map((reg) =>
@@ -80,7 +82,7 @@ const MyRegistrationPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${apiBaseUrl}/registrations/${id}`,{withCredentials: true})
+          .delete(`${apiBaseUrl}/registrations/${id}`, { withCredentials: true })
           .then(() => {
             setRegistrations((prev) => prev.filter((reg) => reg._id !== id));
             Swal.fire("Deleted!", "Your registration has been deleted.", "success");
@@ -156,6 +158,18 @@ const MyRegistrationPage = () => {
           />
         </div>
 
+        <div className="flex flex-col md:flex-row items-center gap-2 justify-between mb-4">
+          <input
+            type="text"
+            placeholder="Search by Marathon Title"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="input input-bordered w-1/3 placeholder-gray-800 dark:placeholder-gray-300"
+          />
+
+          <p className="text-xl">Showing results: {registrations.length}</p>
+        </div>
+
         {data.length > 0 ? (
           <div className="overflow-x-auto">
             <table
@@ -197,9 +211,10 @@ const MyRegistrationPage = () => {
           </div>
         ) : (
           <p className="text-center text-gray-600 dark:text-gray-300">
-            You haven&apos;t made any registrations yet.
+            No registrations found for your search query.
           </p>
         )}
+
 
         {/* Update Modal */}
         {isModalOpen && (
@@ -316,3 +331,4 @@ const MyRegistrationPage = () => {
 }
 
 export default MyRegistrationPage;
+

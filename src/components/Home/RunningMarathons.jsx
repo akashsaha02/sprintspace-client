@@ -13,8 +13,8 @@ const RunningMarathons = () => { // Default limit to 6
     useEffect(() => {
         const fetchMarathons = async () => {
             try {
-                const response = await axios.get(`${apiBaseUrl}/upcoming?limit=6`, { withCredentials: true });
-                setMarathons(response.data);
+                const response = await axios.get(`${apiBaseUrl}/running-events?limit=6`, { withCredentials: true });
+                setMarathons(response.data.marathons);
             } catch (error) {
                 console.error("Error fetching marathons:", error);
             }
