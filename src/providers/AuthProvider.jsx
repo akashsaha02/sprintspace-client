@@ -40,7 +40,6 @@ const AuthProvider = ({ children }) => {
                     console.log(error)
                 })
 
-                console.log(currentUser, "current user observer", apiBaseUrl)
                 setLoading(false);
             } else {
                 setUser(null);

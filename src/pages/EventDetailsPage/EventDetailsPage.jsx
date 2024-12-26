@@ -22,7 +22,7 @@ const EventDetailsPage = () => {
 
   useEffect(() => {
     axios.get(`${apiBaseUrl}/running-events`, { withCredentials: true }).then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
       setRunningEvents(response.data.randomRunningEvents)
     }).catch((error) => {
       console.log(error)

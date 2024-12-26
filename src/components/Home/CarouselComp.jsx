@@ -1,6 +1,6 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import marathonBanner1 from "../../assets/run.png"; // Replace with your marathon-related images
+import marathonBanner1 from "../../assets/sliderImg1.jpg"; // Replace with your marathon-related images
 import marathonBanner2 from "../../assets/run.png";
 import marathonBanner3 from "../../assets/run.png";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ const CarouselComp = () => {
       title: "Run for a Cause, Make an Impact",
       description: "Experience the thrill of running while supporting community causes. Every step brings change and hope.",
       linkPrimary: { path: "/register", text: "Register Now" },
-      linkSecondary: { path: "/learn-more", text: "Learn More" },
+      linkSecondary: { path: "/marathons", text: "Learn More" },
     },
     {
       src: marathonBanner2,
@@ -21,7 +21,7 @@ const CarouselComp = () => {
       title: "Chase Your Dreams, Cross the Finish Line",
       description: "Be part of an unforgettable journey. From training to race day, we’re here to support your goals.",
       linkPrimary: { path: "/register", text: "Sign Up Today" },
-      linkSecondary: { path: "/trainings", text: "Explore Trainings" },
+      linkSecondary: { path: "/marathons", text: "Explore Events" },
     },
     {
       src: marathonBanner3,
@@ -29,7 +29,7 @@ const CarouselComp = () => {
       title: "Join the Marathon Community",
       description: "Celebrate your health, fitness, and resilience. Let’s create unforgettable memories together.",
       linkPrimary: { path: "/register", text: "Get Started" },
-      linkSecondary: { path: "/events", text: "View Events" },
+      linkSecondary: { path: "/marathons", text: "View Events" },
     },
   ];
 
@@ -68,13 +68,13 @@ const CarouselComp = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to={banner.linkPrimary.path}
-                    className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white text-lg font-bold rounded-lg shadow-lg transition-all"
+                    className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-lg transition-all"
                   >
                     {banner.linkPrimary.text}
                   </Link>
                   <Link
                     to={banner.linkSecondary.path}
-                    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-bold rounded-lg shadow-lg transition-all"
+                    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded shadow-lg transition-all"
                   >
                     {banner.linkSecondary.text}
                   </Link>

@@ -36,7 +36,6 @@ const MyRegistrationPage = () => {
   // Open modal with selected registration
   const handleUpdate = (registration) => {
     setSelectedRegistration(registration);
-    console.log(registration);
     setIsModalOpen(true);
   };
 

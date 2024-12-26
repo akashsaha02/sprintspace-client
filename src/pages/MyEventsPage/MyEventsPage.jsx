@@ -18,11 +18,6 @@ const MyEventsPage = () => {
     axios
       .get(`${apiBaseUrl}/events?email=${email}`)
       .then((response) => {
-        // const receivedData = response.data.filter(
-        //   (item) => item.userEmail === email
-        // );
-        // setMarathons(receivedData);
-        console.log(response.data);
         setMarathons(response.data.myEvents);
       })
       .catch((error) => {
