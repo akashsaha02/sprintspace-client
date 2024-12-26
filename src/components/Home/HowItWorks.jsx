@@ -1,50 +1,42 @@
 import SectionTitle from "../shared/SectionTitle";
 
-const HowItWorks = () => {
-  const steps = [
+const WhyJoinMarathon = () => {
+  const benefits = [
     {
-      number: 1,
-      title: "Create a Campaign",
-      description: "Start your donation drive by creating a campaign.",
+      icon: "🏃‍♂️",
+      title: "Stay Fit and Healthy",
+      description:
+        "Participating in marathons is a great way to stay active and improve your overall fitness.",
     },
     {
-      number: 2,
-      title: "Receive Donations",
-      description: "Let people contribute to your cause effortlessly.",
+      icon: "🌍",
+      title: "Support Great Causes",
+      description:
+        "Many marathons raise funds for charities, allowing you to contribute to meaningful social causes.",
     },
     {
-      number: 3,
-      title: "Make an Impact",
-      description: "Deliver the donations and share the joy.",
+      icon: "👨‍👩‍👧‍👦",
+      title: "Build Community",
+      description:
+        "Connect with like-minded individuals and enjoy the camaraderie of marathon enthusiasts.",
     },
   ];
 
   return (
-    <section className="py-12 md:py-16 dark:bg-gray-900 dark:text-white text-gray-800">
-      <div className="px-4 max-w-7xl mx-auto">
-        {/* Section Heading */}
-        <SectionTitle title="How It Works" subtitle="Discover how simple it is to start making a difference" />
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-          {steps.map((step, index) => (
+    <section className="bg-gray-100 dark:bg-gray-900 py-12 mt-10">
+      <div className="max-w-7xl mx-auto px-4">
+      <SectionTitle title="Why Join a Marathon?" subtitle="Discover the Benefits of Participating in Marathons" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 md:mt-12">
+          {benefits.map((benefit, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center text-center space-y-6 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 
-              dark:bg-gray-800 dark:text-gray-300
-              bg-white text-gray-800
-              `}
+              className="bg-purple-100 border border-purple-800 dark:bg-gray-800 rounded-lg shadow-md p-6 text-center"
             >
-              {/* Step Number */}
-              <div
-                className={`w-12 h-12 flex items-center justify-center rounded-full font-bold bg-purple-400 text-gray-900" dark:bg-purple-500 dark:text-white
-                `}
-              >
-                {step.number}
-              </div>
-              {/* Step Title */}
-              <h3 className="text-2xl font-semibold">{step.title}</h3>
-              {/* Step Description */}
-              <p className="text-lg">{step.description}</p>
+              <div className="text-4xl mb-4">{benefit.icon}</div>
+              <h3 className="text-xl font-semibold dark:text-white mb-2">
+                {benefit.title}
+              </h3>
+              <p className="text-sm dark:text-gray-300">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -53,4 +45,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default WhyJoinMarathon;

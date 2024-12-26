@@ -1,30 +1,6 @@
-import { useState } from "react";
 import SectionTitle from "../shared/SectionTitle";
 
 const NewsletterFAQ = () => {
-    const [faqs, setFaqs] = useState([
-        {
-            question: "What is SprintSpace?",
-            answer: "SprintSpace is a platform dedicated to empowering businesses, fostering innovation, and creating sustainable solutions.",
-            isOpen: false,
-        },
-        {
-            question: "How can I subscribe to the newsletter?",
-            answer: "You can subscribe by entering your email in the form below and clicking the 'Subscribe' button.",
-            isOpen: false,
-        },
-        {
-            question: "How does the FAQ section work?",
-            answer: "Click on any question to reveal the answer.",
-            isOpen: false,
-        },
-    ]);
-
-    const toggleFAQ = (index) => {
-        setFaqs((prevFaqs) =>
-            prevFaqs.map((faq, i) => (i === index ? { ...faq, isOpen: !faq.isOpen } : faq))
-        );
-    };
 
     return (
         <section className="py-20 px-6 bg-gradient-to-b from-purple-300 via-purple-200 to-purple-100 text-white dark:from-purple-950 dark:via-purple-800 dark:to-purple-700">
@@ -32,8 +8,8 @@ const NewsletterFAQ = () => {
                 {/* Newsletter Section */}
                 <div className="text-center">
                     <SectionTitle
-                        title="Stay Connected"
-                        subtitle="Join our vibrant community by subscribing to our newsletter. Get the latest updates, exclusive content, and more directly in your inbox."
+                        title="Stay Updated"
+                        subtitle="Join our community of runners! Subscribe to receive the latest marathon updates, training tips, and exclusive event offers directly in your inbox."
                     />
                     <div className="mt-10">
                         <form className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
@@ -55,31 +31,45 @@ const NewsletterFAQ = () => {
 
                 {/* FAQ Section */}
                 <div className="mt-12 md:mt-24">
-                    <h2 className="text-4xl font-extrabold text-center text-black dark:text-white">
+                    <h2 className="text-4xl font-extrabold text-center text-black dark:text-white mb-6">
                         Frequently Asked Questions
                     </h2>
-                    <div className="mt-10 space-y-6 max-w-3xl mx-auto">
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className="p-6 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg"
-                            >
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="w-full flex justify-between items-center text-lg font-semibold text-gray-800 dark:text-white focus:outline-none"
-                                >
-                                    {faq.question}
-                                    <span className="text-purple-500">
-                                        {faq.isOpen ? "-" : "+"}
-                                    </span>
-                                </button>
-                                {faq.isOpen && (
-                                    <p className="mt-3 text-gray-600 dark:text-gray-300">
-                                        {faq.answer}
-                                    </p>
-                                )}
+                    <div className="max-w-3xl mx-auto">
+                        <div className="collapse collapse-plus bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg mb-4">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-white">
+                                What is SprintSpace?
                             </div>
-                        ))}
+                            <div className="collapse-content text-gray-600 dark:text-gray-300">
+                                <p>
+                                    SprintSpace is a platform designed to inspire and connect runners, promote fitness, and organize exciting marathons for all levels.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="collapse collapse-plus bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg mb-4">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-white">
+                                How can I register for a marathon?
+                            </div>
+                            <div className="collapse-content text-gray-600 dark:text-gray-300">
+                                <p>
+                                    You can register by visiting our 'All Marathons' page and selecting the marathon you want to participate in. Follow the instructions to complete your registration.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="collapse collapse-plus bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-white">
+                                What should I bring on race day?
+                            </div>
+                            <div className="collapse-content text-gray-600 dark:text-gray-300">
+                                <p>
+                                    Ensure you bring your race bib, a valid ID, comfortable running gear, and hydration essentials. Check the event guide for specific requirements.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

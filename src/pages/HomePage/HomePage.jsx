@@ -2,10 +2,10 @@ import HowItWorks from "../../components/Home/HowItWorks";
 import Banner from "../../components/Home/Banner";
 import OurMission from "../../components/Home/OurMission";
 import NewsletterFAQ from "../../components/Home/NewsletterFAQ";
-import CarouselComp from "../../components/Home/CarouselComp";
 import { Helmet } from 'react-helmet';
 import UpcomingMarathons from "../../components/Home/UpcomingMarathons";
 import RunningMarathons from "../../components/Home/RunningMarathons";
+import CarouselComp from './../../components/Home/CarouselComp';
 
 
 const HomePage = () => {
@@ -15,8 +15,8 @@ const HomePage = () => {
       <Helmet>
         <title>SprintSpace | Home</title>
       </Helmet>
-      <Banner />
-      {/* <CarouselComp /> */}
+      {/* <Banner /> */}
+      <CarouselComp />
       <RunningMarathons />
       <UpcomingMarathons />
       <HowItWorks />
