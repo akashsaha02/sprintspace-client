@@ -23,9 +23,9 @@ const Filters = ({
           onChange={(e) => setSelectedType(e.target.value)}
         >
           <option value="all">All</option>
-          <option value="marathon">Marathon</option>
-          <option value="running">Running</option>
-          <option value="cycling">Cycling</option>
+          <option value="3 KM">3 KM</option>
+          <option value="10 KM">10 KM</option>
+          <option value="25 KM">25 KM</option>
         </select>
       </div>
 

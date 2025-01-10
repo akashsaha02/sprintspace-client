@@ -29,7 +29,7 @@ const AllMarathonsPage = () => {
 
     // Filter by type
     if (selectedType !== "all") {
-      filtered = filtered.filter((event) => event.type === selectedType);
+      filtered = filtered.filter((event) => event.runningDistance === selectedType);
     }
 
     // Filter by location

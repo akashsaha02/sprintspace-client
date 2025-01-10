@@ -102,7 +102,7 @@ const EventDetailsPage = () => {
           <div>
             <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center mt-6">More Running events</h2>
             <div className="">
-              <EventCard marathons={runningEvents} />
+              {/* <EventCard marathons={runningEvents} /> */}
             </div>
           </div>
 

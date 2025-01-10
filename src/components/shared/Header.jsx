@@ -75,6 +75,7 @@ const Header = () => {
           My Registrations
         </NavLink>
       )}
+      <ThemeToggle/>
     </>
   );
 
