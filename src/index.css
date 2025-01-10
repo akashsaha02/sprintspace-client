@@ -1,13 +1,20 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Yellowtail&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
   /* font-family: "Sen", sans-serif; */
-  font-family: "Lato", serif;
-  font-optical-sizing: auto;
+  font-family: "Source Sans 3", serif; 
+}
+
+.font-faj{
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.font-yel{
+  font-family: "Yellowtail", serif;
 }
 
 .react-tooltip {

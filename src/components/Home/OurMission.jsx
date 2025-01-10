@@ -19,10 +19,10 @@ const OurMission = () => {
           </div>
         </div>
         <div className="max-w-xl">
-          <h3 className="text-3xl font-semibold text-gray-800 dark:text-white">
+          <h3 className="text-3xl font-yel text-gray-800 dark:text-white">
             Run for a Cause, Run for Yourself
           </h3>
-          <p className="mt-4 text-2xl font-semibold text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-2xl font-semibold text-gray-600 dark:text-gray-300 font-faj">
             <Typewriter
               words={[
                 "Inspire change, one step at a time.",

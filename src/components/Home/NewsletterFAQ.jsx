@@ -9,7 +9,7 @@ const NewsletterFAQ = () => {
                 <div className="text-center">
                     <SectionTitle
                         title="Stay Updated"
-                        subtitle="Join our community of runners! Subscribe to receive the latest marathon updates, training tips, and exclusive event offers directly in your inbox."
+                        subtitle="Join our community of runners!"
                     />
                     <div className="mt-10">
                         <form className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
@@ -31,7 +31,7 @@ const NewsletterFAQ = () => {
 
                 {/* FAQ Section */}
                 <div className="mt-12 md:mt-24">
-                    <h2 className="text-4xl font-extrabold text-center text-black dark:text-white mb-6">
+                    <h2 className="text-4xl font-extrabold text-center text-black dark:text-white mb-6 font-faj">
                         Frequently Asked Questions
                     </h2>
                     <div className="max-w-3xl mx-auto">
