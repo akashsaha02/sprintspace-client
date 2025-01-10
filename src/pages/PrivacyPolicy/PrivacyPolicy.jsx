@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
                         information. To exercise these rights, please contact us at
                         <a
                             href="mailto:support@SprintSpace.com"
-                            className="text-purple-500 hover:text-purple-400"
+                            className="text-sky-500 hover:text-sky-400"
                         >
                             {" "}
                             support@SprintSpace.com
@@ -69,7 +69,7 @@ const PrivacyPolicy = () => {
                         us at{" "}
                         <a
                             href="mailto:support@SprintSpace.com"
-                            className="text-purple-500 hover:text-purple-400"
+                            className="text-sky-500 hover:text-sky-400"
                         >
                             support@SprintSpace.com
                         </a>

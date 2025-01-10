@@ -7,100 +7,108 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+import loginImg from '../../assets/login.png'
+
+
 const RegisterPage = () => {
-    const { createUser } = useContext(AuthContext);
-    const navigate = useNavigate();
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        username: '',
-        photoUrl: '',
-        email: '',
-        password: '',
-    });
-    const [errorMessage, setErrorMessage] = useState("");
-    const [success, setSuccess] = useState(false);
-    // const [verificationMessage, setVerificationMessage] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    username: '',
+    photoUrl: '',
+    email: '',
+    password: '',
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+  // const [verificationMessage, setVerificationMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSuccess(false);
-        setErrorMessage('');
-        // setVerificationMessage('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSuccess(false);
+    setErrorMessage('');
+    // setVerificationMessage('');
 
-        // Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter.
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    // Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter.
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
-        // Validate password
-        if (!passwordRegex.test(formData.password)) {
-            setErrorMessage(
-                'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter'
-            );
-            return;
+    // Validate password
+    if (!passwordRegex.test(formData.password)) {
+      setErrorMessage(
+        'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter'
+      );
+      return;
+    }
+
+    // Create user using Auth Provider
+    createUser(formData.email, formData.password)
+      .then(userCredential => {
+
+        // const user = userCredential.user;
+        // send email verification address
+        // sendEmailVerification(auth.currentUser)
+        //     .then(() => {
+        //         setVerificationMessage("Verification email sent");
+        //     });
+        // update user profile
+        updateProfile(auth.currentUser, {
+          displayName: formData.username,
+          photoURL: formData.photoUrl
         }
+        ).catch(error => {
+          toast.error('Error updating user profile:', error.code, error.message);
+        }
+        );
+        // Explicitly log the user out after registration
+        signOut(auth)
+          .catch(error => {
+            toast.error('Error logging out:', error.code, error.message);
+          });
 
-        // Create user using Auth Provider
-        createUser(formData.email, formData.password)
-            .then(userCredential => {
+        setSuccess(true);
+        toast.success('User registered successfully!');
+        setFormData({
+          username: '',
+          photoUrl: '',
+          email: '',
+          password: '',
+        }); // Reset form data
+        e.target.reset();
+        navigate("/");
+      }).catch(error => {
+        const errorMessage = error.message;
+        setErrorMessage(errorMessage);
+        setSuccess(false);
+        toast.error('Error registering user!');
+      });
+  };
 
-                // const user = userCredential.user;
-                // send email verification address
-                // sendEmailVerification(auth.currentUser)
-                //     .then(() => {
-                //         setVerificationMessage("Verification email sent");
-                //     });
-                // update user profile
-                updateProfile(auth.currentUser, {
-                    displayName: formData.username,
-                    photoURL: formData.photoUrl
-                }
-                ).catch(error => {
-                    toast.error('Error updating user profile:', error.code, error.message);
-                }
-                );
-                // Explicitly log the user out after registration
-                signOut(auth)
-                    .catch(error => {
-                        toast.error('Error logging out:', error.code, error.message);
-                    });
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-                setSuccess(true);
-                toast.success('User registered successfully!');
-                setFormData({
-                    username: '',
-                    photoUrl: '',
-                    email: '',
-                    password: '',
-                }); // Reset form data
-                e.target.reset();
-                navigate("/");
-            }).catch(error => {
-                const errorMessage = error.message;
-                setErrorMessage(errorMessage);
-                setSuccess(false);
-                toast.error('Error registering user!');
-            });
-    };
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <Helmet>
+        <title>SprintSpace | Register</title>
+      </Helmet>
+      <div className="w-full max-w-lg lg:max-w-5xl p-8 bg-white  dark:bg-gray-800 rounded-lg shadow-lg my-10 mx-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
 
-    return (
-        <div className="flex items-center justify-center my-6">
-        <Helmet>
-          <title>SprintSpace | Register</title>
-        </Helmet>
-        <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:shadow-gray-900">
-          <h2 className="text-2xl font-bold text-center text-gray-700 dark:text-gray-200">
+        {/* Form Element */}
+        <div className="max-w-md p-4 space-y-2">
+
+          <h2 className="text-3xl font-faj text-center text-gray-700 dark:text-gray-200">
             Create an Account
           </h2>
           <hr className="my-4 border-gray-300 dark:border-gray-600" />
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Username */}
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -115,10 +123,10 @@ const RegisterPage = () => {
                 autoComplete="name"
                 required
                 placeholder="Enter a username"
-                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-H-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
               />
             </div>
-      
+
             {/* Avatar */}
             <div>
               <label htmlFor="photoUrl" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -132,10 +140,10 @@ const RegisterPage = () => {
                 autoComplete="photo"
                 required
                 placeholder="Enter a photo URL"
-                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
               />
             </div>
-      
+
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -150,10 +158,10 @@ const RegisterPage = () => {
                 autoComplete="email"
                 required
                 placeholder="Enter a valid e-mail"
-                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
               />
             </div>
-      
+
             {/* Password */}
             <div className="relative">
               <label htmlFor="password" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -168,7 +176,7 @@ const RegisterPage = () => {
                 onChange={handleChange}
                 required
                 placeholder="Enter a strong password"
-                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
               />
               <button
                 type="button"
@@ -178,28 +186,40 @@ const RegisterPage = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-      
+
             <button
               type="submit"
-              className="w-full py-2 mt-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-blue-600 dark:hover:bg-blue-700"
+              className="w-full py-2 mt-4 font-semibold text-white bg-sky-500 rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-600 dark:hover:bg-sky-700"
             >
               Register
             </button>
+            <hr className="my-4 border-gray-300 dark:border-gray-600" />
+            <p className="text-sm text-center text-gray-600 dark:text-gray-300">
+              Already have an account?{" "}
+              <span onClick={() => navigate("/login")} className="text-sky-500 hover:underline">
+                Log in
+              </span>
+            </p>
           </form>
-      
-          <p className="text-sm text-center text-gray-600 dark:text-gray-300">
-            Already have an account?{" "}
-            <span onClick={() => navigate("/login")} className="text-blue-500 hover:underline">
-              Log in
-            </span>
-          </p>
-      
+
+
+
+
           {errorMessage && <p className="text-sm text-red-500 dark:text-red-400">{errorMessage}</p>}
           {success && <p className="text-sm text-green-500 dark:text-green-400">User registered successfully</p>}
+
         </div>
+
+        {/* Image Section */}
+        <div className="hidden lg:flex max-w-md justify-center items-center">
+          <img src={loginImg} alt="Running" className="w-full p-4 object-cover rounded-md" />
+        </div>
+
+
+
       </div>
-      
-    );
+    </div >
+  );
 };
 
 export default RegisterPage;

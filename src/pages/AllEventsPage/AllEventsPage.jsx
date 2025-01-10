@@ -6,7 +6,7 @@ import Loader from "../../components/shared/Loader";
 import EventsGrid from "../../components/AllEvents/EventsGrid";
 import Filters from "../../components/AllEvents/Filter";
 
-const AllMarathonsPage = () => {
+const AllEventsPage = () => {
   const [events, setEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [selectedType, setSelectedType] = useState("all");
@@ -106,4 +106,4 @@ const AllMarathonsPage = () => {
   );
 };
 
-export default AllMarathonsPage;
+export default AllEventsPage;

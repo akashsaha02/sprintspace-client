@@ -39,7 +39,7 @@ const RunningMarathons = () => { // Default limit to 6
                     </div>
                 </div>
                 <div className="flex justify-center items-center my-6">
-                    <Link to="/marathons" className=" text-center text-white text-lg rounded-lg px-6 py-2 bg-purple-600 dark:text-purple-400 font-semibold mt-4 hover:underline">See More</Link>
+                    <Link to="/all-events" className=" text-center text-white text-lg rounded-lg px-6 py-2 bg-sky-600 dark:text-sky-400 font-semibold mt-4 hover:underline">See More</Link>
                 </div>
             </div>
         </section>

@@ -32,7 +32,7 @@ const ProfileTooltip = () => {
             <img
                 src={user.photoURL}
                 alt="profile"
-                className=" w-12 h-12 md:w-[50px] md:h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-purple-500"
+                className=" w-12 h-12 md:w-[50px] md:h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-sky-500"
             />
 
             {/* Tooltip */}
@@ -41,7 +41,7 @@ const ProfileTooltip = () => {
                     isTooltipVisible
                         ? "opacity-100 z-50 translate-y-0 pointer-events-auto"
                         : "opacity-0 z-[-10] translate-y-[20px] pointer-events-none"
-                } absolute top-[50px] left-[0%] transform translate-x-[-80%] bg-base-100 w-[250px] rounded-md p-[15px] shadow-lg transition-all duration-300 border-2 border-purple-800 dark:text-white`}
+                } absolute top-[50px] left-[0%] transform translate-x-[-80%] bg-base-100 w-[250px] rounded-md p-[15px] shadow-lg transition-all duration-300 border-2 border-sky-800 dark:text-white`}
                 onMouseEnter={() => setIsTooltipHovered(true)}
                 onMouseLeave={() => setIsTooltipHovered(false)}
             >
@@ -50,13 +50,13 @@ const ProfileTooltip = () => {
                     <p className="text-[1rem] font-[600] text-gray-700 dark:text-white">Socials</p>
                     <div className="flex items-center gap-[8px]">
                         <a href="https://zenui.net">
-                            <FaLinkedin className="text-[1.3rem] text-gray-700 dark:text-white hover:text-purple-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
+                            <FaLinkedin className="text-[1.3rem] text-gray-700 dark:text-white hover:text-sky-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
                         </a>
                         <a href="https://zenui.net">
-                            <FaGithubSquare className="text-[1.3rem] text-gray-700 dark:text-white hover:text-purple-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
+                            <FaGithubSquare className="text-[1.3rem] text-gray-700 dark:text-white hover:text-sky-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
                         </a>
                         <a href="https://zenui.net">
-                            <FaInstagramSquare className="text-[1.3rem] text-gray-700 dark:text-white hover:text-purple-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
+                            <FaInstagramSquare className="text-[1.3rem] text-gray-700 dark:text-white hover:text-sky-500 cursor-pointer hover:scale-[1.2] transition-all duration-200 ease-out" />
                         </a>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const ProfileTooltip = () => {
                 {/* Logout button */}
                 <button
                     onClick={handleLogout}
-                    className="flex mx-auto items-center gap-[8px] text-[0.9rem] px-6 py-2 rounded-md text-white font-bold bg-purple-500 mt-4"
+                    className="flex mx-auto items-center gap-[8px] text-[0.9rem] px-6 py-2 rounded-md text-white font-bold bg-sky-500 mt-4"
                 >
                     Logout
                 </button>

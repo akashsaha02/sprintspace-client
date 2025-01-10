@@ -13,7 +13,7 @@ const CarouselComp = () => {
       title: "Run for a Cause, Make an Impact",
       description: "Experience the thrill of running while supporting community causes. Every step brings change and hope.",
       linkPrimary: { path: "/register", text: "Register Now" },
-      linkSecondary: { path: "/marathons", text: "Learn More" },
+      linkSecondary: { path: "/all-events", text: "Learn More" },
     },
     {
       src: marathonBanner2,
@@ -21,7 +21,7 @@ const CarouselComp = () => {
       title: "Chase Your Dreams, Cross the Finish Line",
       description: "Be part of an unforgettable journey. From training to race day, we’re here to support your goals.",
       linkPrimary: { path: "/register", text: "Sign Up Today" },
-      linkSecondary: { path: "/marathons", text: "Explore Events" },
+      linkSecondary: { path: "/all-events", text: "Explore Events" },
     },
     {
       src: marathonBanner3,
@@ -29,7 +29,7 @@ const CarouselComp = () => {
       title: "Join the Marathon Community",
       description: "Celebrate your health, fitness, and resilience. Let’s create unforgettable memories together.",
       linkPrimary: { path: "/register", text: "Get Started" },
-      linkSecondary: { path: "/marathons", text: "View Events" },
+      linkSecondary: { path: "/all-events", text: "View Events" },
     },
   ];
 
@@ -68,7 +68,7 @@ const CarouselComp = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to={banner.linkPrimary.path}
-                    className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-lg transition-all"
+                    className="px-6 py-3 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded shadow-lg transition-all"
                   >
                     {banner.linkPrimary.text}
                   </Link>

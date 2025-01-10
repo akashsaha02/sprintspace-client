@@ -7,10 +7,11 @@ import SectionTitle from '../../components/shared/SectionTitle';
 import { Helmet } from 'react-helmet';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import runningImg from '../../assets/marathon-running.png'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-const AddMarathonPage = () => {
+const AddEventPage = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -53,14 +54,14 @@ const AddMarathonPage = () => {
           userEmail: user.email,
           userName: user.displayName,
         },
-      {
+        {
           withCredentials: true
         }
       );
 
       if (response.status === 200) {
         toast.success("Marathon added successfully!");
-        navigate("/marathons");
+        navigate("/all-events");
       } else {
         throw new Error("Failed to add marathon.");
       }
@@ -71,16 +72,21 @@ const AddMarathonPage = () => {
   };
 
   return (
-    <div className="dark:bg-gray-900 min-h-screen px-2">
+    <div className="dark:bg-gray-900 bg-gray-100 min-h-screen px-2">
       <Helmet>
         <title>SprintSpace | Add Marathon</title>
       </Helmet>
-      <div className="max-w-4xl mx-auto mt-10 px-4 py-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+
+      <div className="max-w-3xl mx-auto my-10 px-4 py-6 bg-white dark:bg-gray-800 rounded ">
         <SectionTitle
           title="Add New Marathon"
           subtitle={`Welcome, ${user.displayName}!`}
         />
-        <form className="mt-6" onSubmit={handleSubmit}>
+
+        <form className="rounded-lg p-4" onSubmit={handleSubmit}>
+          <div className="w-96 mx-auto mb-4 ">
+            <img src={runningImg} alt="Marathon" className="w-full" />
+          </div>
           {/* Marathon Title */}
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200">Marathon Title</label>
@@ -119,7 +125,7 @@ const AddMarathonPage = () => {
             </div>
 
             {/* Marathon Start Date */}
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <label className="block text-gray-700 dark:text-gray-200">Marathon Start Date</label>
               <DatePicker
                 selected={formData.marathonStartDate}
@@ -130,34 +136,36 @@ const AddMarathonPage = () => {
             </div>
           </div>
 
-          {/* Location */}
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-200">Location</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
-              placeholder="Enter location"
-            />
-          </div>
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Location */}
+            <div className="mb-4 w-full">
+              <label className="block text-gray-700 dark:text-gray-200">Location</label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                placeholder="Enter location"
+              />
+            </div>
 
-          {/* Running Distance */}
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-200">Running Distance</label>
-            <select
-              name="runningDistance"
-              value={formData.runningDistance}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
-            >
-              <option value="3 KM">3 KM</option>
-              <option value="10 KM">10 KM</option>
-              <option value="25 KM">25 KM</option>
-            </select>
+            {/* Running Distance */}
+            <div className="mb-4 w-full">
+              <label className="block text-gray-700 dark:text-gray-200">Running Distance</label>
+              <select
+                name="runningDistance"
+                value={formData.runningDistance}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              >
+                <option value="3 KM">3 KM</option>
+                <option value="10 KM">10 KM</option>
+                <option value="25 KM">25 KM</option>
+              </select>
+            </div>
           </div>
 
           {/* Description */}
@@ -191,7 +199,7 @@ const AddMarathonPage = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-purple-600 dark:bg-purple-500 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-purple-600 focus:outline-none"
+            className="w-full py-2 px-4 bg-sky-600 dark:bg-sky-500 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-sky-600 focus:outline-none"
           >
             Add Marathon
           </button>
@@ -201,4 +209,4 @@ const AddMarathonPage = () => {
   );
 };
 
-export default AddMarathonPage;
+export default AddEventPage;

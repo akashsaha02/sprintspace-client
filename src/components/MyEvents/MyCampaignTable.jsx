@@ -19,7 +19,7 @@ const MyCampaignTable = ({ campaigns, columns }) => {
                 <th
                   {...column.getHeaderProps()}
                   key={column.id}
-                  className="px-4 py-3 text-gray-800 dark:text-white uppercase tracking-wider border border-gray-400 dark:border-gray-200 text-center bg-purple-100 dark:bg-gray-700"
+                  className="px-4 py-3 text-gray-800 dark:text-white uppercase tracking-wider border border-gray-400 dark:border-gray-200 text-center bg-sky-100 dark:bg-gray-700"
                 >
                   {column.render("Header")}
                 </th>

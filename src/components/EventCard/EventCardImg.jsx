@@ -36,7 +36,7 @@ const EventCardImg = ({ marathons }) => {
 
                         {/* Title Section */}
                         <div className="p-4 text-center bg-gray-50 dark:bg-gray-800">
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 truncate group-hover:text-purple-600 transition-colors duration-300">
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 truncate group-hover:text-sky-600 transition-colors duration-300">
                                 {marathon.title}
                             </h3>
                         </div>
@@ -57,7 +57,7 @@ const EventCardImg = ({ marathons }) => {
                                         Start Date: {format(new Date(marathon.marathonStartDate), "MMMM dd, yyyy")}
                                     </p>
                                     <p className="flex items-center gap-2 text-sm">
-                                        <BiCategory className="text-purple-400 text-lg" />
+                                        <BiCategory className="text-sky-400 text-lg" />
                                         Distance: {marathon.runningDistance}
                                     </p>
                                     <p className="flex items-center gap-2 text-sm">

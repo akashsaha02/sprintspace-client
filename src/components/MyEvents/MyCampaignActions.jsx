@@ -5,7 +5,7 @@ const MyCampaignActions = ({ id, handleDelete }) => {
     <div className="flex justify-center items-center gap-2">
       <Link
         to={`/campaigns/update/${id}`}
-        className="text-md bg-purple-600 text-white py-2 px-3 rounded hover:bg-purple-700 transition font-bold"
+        className="text-md bg-sky-600 text-white py-2 px-3 rounded hover:bg-sky-700 transition font-bold"
       >
         Update
       </Link>

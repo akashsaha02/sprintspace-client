@@ -52,8 +52,8 @@ const OurMission = () => {
           </p>
           <div className="mt-6">
             <Link
-              to={'/marathons'}
-              className="px-6 py-2 text-md font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-purple-400 focus:outline-none"
+              to={'/all-events'}
+              className="px-6 py-2 text-md font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-sky-400 focus:outline-none"
             >
               Explore Marathons
             </Link>

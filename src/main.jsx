@@ -10,10 +10,10 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import AuthProvider from './providers/AuthProvider'
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
-import AllMarathonPage from './pages/AllMarathonsPage/AllMarathonsPage'
+import AllEventsPage from './pages/AllEventsPage/AllEventsPage'
 import EventDetailsPage from './pages/EventDetailsPage/EventDetailsPage';
 import MyCampaignPage from './pages/MyEventsPage/MyEventsPage';
-import AddMarathonPage from './pages/AddMarathonPage/AddMarathonPage';
+import AddEventPage from './pages/AddEventPage/AddEventPage';
 import MyRegistrationPage from './pages/MyRegistrationPage/MyRegistrationPage';
 import PrivateRoute from './routes/PrivateRoute'
 import UpdateCampaigns from './pages/UpdateEvents/UpdateEvents'
@@ -53,8 +53,8 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: '/marathons',
-        element: <AllMarathonPage />
+        path: '/all-events',
+        element: <AllEventsPage />
       },
       {
         path: '/events/details/:id',
@@ -64,9 +64,9 @@ const router = createBrowserRouter([
         loader: ({ params }) => axios.get(`${apiBaseUrl}/events/details/${params.id}`).then((res) => res.data)
       },
       {
-        path: '/add-marathon',
+        path: '/add-event',
         element: <PrivateRoute>
-          <AddMarathonPage />
+          <AddEventPage />
         </PrivateRoute>
       },
       {

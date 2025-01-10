@@ -15,7 +15,8 @@ const EventCard = ({ marathon }) => {
   const startDate = formatDate(new Date(marathon.startRegistrationDate)).split(" ");
 
   return (
-    <div
+    <Link
+      to={`/events/details/${marathon._id}`}
       key={marathon._id}
       className="relative group max-w-sm rounded overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
     >
@@ -29,7 +30,7 @@ const EventCard = ({ marathon }) => {
 
         {/* Registration Status Badge */}
         <div className="absolute flex flex-col justify-center items-center gap-2 top-4 right-4 px-3 py-1 text-md font-bold uppercase rounded shadow-lg bg-white text-black">
-          <div className="text-purple-700">
+          <div className="text-sky-700">
             <GiPathDistance size={40} />
           </div>
           <p className="font-faj text-xl">{marathon.runningDistance}</p>
@@ -67,19 +68,19 @@ const EventCard = ({ marathon }) => {
         <div className="flex justify-between gap-2 mt-4">
           <Link
             to={`/events/details/${marathon._id}`}
-            className="block text-center text-purple-700 border font-medium py-2 px-4 rounded shadow-lg hover:bg-purple-700 transition-all duration-300 hover:text-white"
+            className="block text-center text-sky-700 border font-medium py-2 px-4 rounded shadow-lg hover:bg-sky-700 transition-all duration-300 hover:text-white"
           >
             Learn More
           </Link>
           <Link
             to={`/events/details/${marathon._id}`}
-            className="block text-center bg-purple-600 text-white font-medium py-2 px-4 rounded shadow-lg hover:bg-purple-700 transition-all duration-300"
+            className="block text-center bg-sky-600 text-white font-medium py-2 px-4 rounded shadow-lg hover:bg-sky-700 transition-all duration-300"
           >
             Register Now
           </Link>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

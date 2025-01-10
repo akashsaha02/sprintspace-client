@@ -3,7 +3,7 @@ import SectionTitle from "../shared/SectionTitle";
 const NewsletterFAQ = () => {
 
     return (
-        <section className="py-20 px-6 bg-gradient-to-b from-purple-300 via-purple-200 to-purple-100 text-white dark:from-purple-950 dark:via-purple-800 dark:to-purple-700">
+        <section className="py-20 px-6 bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100 text-white dark:from-sky-950 dark:via-sky-800 dark:to-sky-700">
             <div className="max-w-[1920px] mx-auto">
                 {/* Newsletter Section */}
                 <div className="text-center">
@@ -21,7 +21,7 @@ const NewsletterFAQ = () => {
                             />
                             <button
                                 type="submit"
-                                className="px-8 py-3 text-lg font-semibold bg-purple-900 dark:bg-purple-400 hover:bg-purple-800 dark:hover:bg-purple-500 rounded-lg shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-purple-300 focus:outline-none"
+                                className="px-8 py-3 text-lg font-semibold bg-sky-900 dark:bg-sky-400 hover:bg-sky-800 dark:hover:bg-sky-500 rounded-lg shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-sky-300 focus:outline-none"
                             >
                                 Subscribe
                             </button>

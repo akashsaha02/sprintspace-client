@@ -27,16 +27,16 @@ const Header = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+          `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
         }
         onClick={closeDropdown}
       >
         Home
       </NavLink>
       <NavLink
-        to="/marathons"
+        to="/all-events"
         className={({ isActive }) =>
-          `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+          `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
         }
         onClick={closeDropdown}
       >
@@ -44,9 +44,9 @@ const Header = () => {
       </NavLink>
       {user && (
         <NavLink
-          to="/add-marathon"
+          to="/add-event"
           className={({ isActive }) =>
-            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
           }
           onClick={closeDropdown}
         >
@@ -57,7 +57,7 @@ const Header = () => {
         <NavLink
           to="/my-events"
           className={({ isActive }) =>
-            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
           }
           onClick={closeDropdown}
         >
@@ -68,7 +68,7 @@ const Header = () => {
         <NavLink
           to="/my-registrations"
           className={({ isActive }) =>
-            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+            `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
           }
           onClick={closeDropdown}
         >
@@ -120,9 +120,9 @@ const Header = () => {
             className="text-2xl xl:text-3xl font-extrabold cursor-pointer flex items-center gap-2 dark:text-gray-200"
           >
             <span>
-              <img className="w-12 h-12 hidden md:block rounded-full border-2 border-purple-500" src={logo} alt="" />
+              <img className="w-12 h-12 hidden md:block rounded-full border-2 border-sky-500" src={logo} alt="" />
             </span>
-            <span className="text-purple-700 dark:text-purple-500 italic">
+            <span className="text-sky-700 dark:text-sky-500 italic">
               SprintSpace
             </span>
           </h2>
@@ -135,7 +135,7 @@ const Header = () => {
           <NavLink
             to={user ? "/profile" : "/register"}
             className={({ isActive }) =>
-              `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+              `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
             }
           >
             {user ? "My Profile" : "Register"}
@@ -150,12 +150,11 @@ const Header = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-purple-600 text-white' : 'bg-transparent dark:text-gray-200'}`
+                `px-3 py-2 text-xs md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-sky-600 text-white' : 'bg-transparent dark:text-gray-200'}`
               }
             >
               Login
             </NavLink>
-            <ThemeToggle />
           </>
           )}
         </div>

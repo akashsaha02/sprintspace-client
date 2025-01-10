@@ -22,7 +22,7 @@ const SearchCampaign = ({ campaigns, setSortedCampaigns }) => {
                 placeholder="Search campaigns..."
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="px-4 py-2 w-full border border-gray-600 rounded-lg focus:outline-none focus:ring focus:border-purple-600 dark:bg-gray-600 dark:text-white"
+                className="px-4 py-2 w-full border border-gray-600 rounded-lg focus:outline-none focus:ring focus:border-sky-600 dark:bg-gray-600 dark:text-white"
             />
         </div>
     );
