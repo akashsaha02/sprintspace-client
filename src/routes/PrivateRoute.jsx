@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProvider'
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import Loader from '../components/shared/Loader';
 
 const PrivateRoute = ({ children }) => {
 
@@ -8,8 +9,8 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return (
-            <div className='flex flex-col gap-2 justify-center items-center '>
-                <span className="loading loading-dots loading-lg"></span>
+            <div className='min-h-screen justify-center items-center '>
+                <Loader />
             </div>
         )
     }

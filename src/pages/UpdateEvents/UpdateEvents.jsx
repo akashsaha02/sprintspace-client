@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from "react-helmet";
+import Loader from "../../components/shared/Loader";
 
 const UpdateEvents = () => {
   const { id } = useParams();
@@ -81,8 +82,8 @@ const UpdateEvents = () => {
 
   if (!campaignDetails) {
     return (
-      <div className="flex justify-center items-center">
-        <span className="loading loading-dots loading-lg"></span>
+      <div className='min-h-screen justify-center items-center '>
+        <Loader />
       </div>
     );
   }

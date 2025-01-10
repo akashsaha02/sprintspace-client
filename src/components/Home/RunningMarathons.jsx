@@ -1,35 +1,42 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import SectionTitle from "../shared/SectionTitle";
 import { Link } from "react-router-dom";
-
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import EventCard from './../EventCard/EventCard';
+import UseEvents from "../../hooks/UseEvents";
+import Loader from "../shared/Loader";
 
 const RunningMarathons = () => { // Default limit to 6
-    const [marathons, setMarathons] = useState([]);
+    const [events, setEvents] = useState([]);
+
+    const [eventsData, loading, error] = UseEvents("running");
+
+    // console.log(eventsData.marathons)
 
 
     useEffect(() => {
-        const fetchMarathons = async () => {
-            try {
-                const response = await axios.get(`${apiBaseUrl}/running-events?limit=6`, { withCredentials: true });
-                setMarathons(response.data.marathons);
-            } catch (error) {
-                console.error("Error fetching marathons:", error);
-            }
-        };
+        if (eventsData) {
+            setEvents(eventsData.marathons || []); // Adjust to match the API response structure
+        }
+    }, [eventsData]);
 
-        fetchMarathons();
-    }, []);
+    if (loading) {
+        <Loader/>
+    }
+
+    if (error) {
+        return <p className="text-center text-red-500">Error fetching data</p>;
+    }
 
     return (
         <section className="bg-gray-100 dark:bg-gray-900">
             <div className="py-10 md:py-16 max-w-[1920px] mx-auto px-4">
                 <SectionTitle title="Running Marathons" subtitle="Explore and Join Our Marathon Events" />
                 <div className="flex justify-center items-center" >
-                    <EventCard marathons={marathons} />
-                    {/* <EventCardImg marathons={marathons} /> */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-8">
+                        {events.map((marathon) => (
+                            <EventCard key={marathon._id} marathon={marathon} />
+                        ))}
+                    </div>
                 </div>
                 <div className="flex justify-center items-center my-6">
                     <Link to="/marathons" className=" text-center text-white text-lg rounded-lg px-6 py-2 bg-purple-600 dark:text-purple-400 font-semibold mt-4 hover:underline">See More</Link>

@@ -1,87 +1,105 @@
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import SortButton from "../../components/SortButton/SortButton";
 import SectionTitle from "../../components/shared/SectionTitle";
-import EventCard from "../../components/EventCard/EventCard";
-import SearchCampaign from "../../components/SearchCampaign/SearchCampaign";
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import UseEvents from "../../hooks/UseEvents";
+import Loader from "../../components/shared/Loader";
+import EventsGrid from "../../components/AllEvents/EventsGrid";
+import Filters from "../../components/AllEvents/Filter";
 
 const AllMarathonsPage = () => {
   const [events, setEvents] = useState([]);
-  const [sortedEvents, setSortedEvents] = useState([]);
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [selectedType, setSelectedType] = useState("all");
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [startDateRange, setStartDateRange] = useState({ start: "", end: "" });
+
+
+  const [eventsData, loading, error] = UseEvents("events");
 
   useEffect(() => {
-    fetchEvents(currentPage);
-  }, [currentPage]);
+    if (eventsData) {
+      setEvents(eventsData || []);
+      setFilteredEvents(eventsData || []);
+    }
+  }, [eventsData]);
 
-  const fetchEvents = (page) => {
-    axios
-      .get(`${apiBaseUrl}/events?page=${page}&limit=9`)
-      .then((response) => {
-        setSortedEvents(response.data.events);
-        setEvents(response.data.events);
-        setTotalPages(response.data.totalPages);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
+  const handleFilterChange = () => {
+    let filtered = events;
+
+    // Filter by type
+    if (selectedType !== "all") {
+      filtered = filtered.filter((event) => event.type === selectedType);
+    }
+
+    // Filter by location
+    if (selectedLocation) {
+      filtered = filtered.filter((event) =>
+        event.location.toLowerCase().includes(selectedLocation.toLowerCase())
+      );
+    }
+
+    // Filter by name
+    if (searchName) {
+      filtered = filtered.filter((event) =>
+        event.title.toLowerCase().includes(searchName.toLowerCase())
+      );
+    }
+
+    // Filter by marathon start date range
+    if (startDateRange.start && startDateRange.end) {
+      const startDate = new Date(startDateRange.start);
+      const endDate = new Date(startDateRange.end);
+
+      filtered = filtered.filter((event) => {
+        const eventDate = new Date(event.marathonStartDate);
+        return eventDate >= startDate && eventDate <= endDate;
       });
+    }
+
+    setFilteredEvents(filtered);
   };
 
-  const handleSort = () => {
-    const sorted = [...events].sort((a, b) => {
-      const dateA = new Date(a.createdAt);
-      const dateB = new Date(b.createdAt);
-      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
-    });
-    setSortedEvents(sorted);
-    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-  };
+  useEffect(() => {
+    handleFilterChange();
+  }, [selectedType, selectedLocation, searchName, startDateRange]);
 
-  const handlePageChange = (page) => {
-    if (page < 1 || page > totalPages) return;
-    setCurrentPage(page);
-  };
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p className="text-center text-red-500">Error fetching data</p>;
+  }
 
   return (
     <div className="pt-10 pb-16 px-4 max-w-[1920px] mx-auto">
       <Helmet>
         <title>SprintSpace | All Marathons</title>
       </Helmet>
-      <div>
-        <SectionTitle title="All Marathons" subtitle="Explore and support the active campaigns." />
-        <div className="flex max-w-5xl mx-auto flex-col md:flex-row items-center justify-between gap-3 mt-4">
-          <SearchCampaign campaigns={events} setSortedCampaigns={setSortedEvents} />
-          <SortButton handleSort={handleSort} sortOrder={sortOrder} />
+      <SectionTitle title="All Marathons" subtitle="Explore and support the active campaigns." />
+      <div className="grid xl:grid-cols-5 gap-8 mt-8">
+        {/* Sidebar */}
+        <div className="xl:col-span-1 lg:col-span-1 lg:block">
+          <Filters
+            selectedType={selectedType}
+            setSelectedType={setSelectedType}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+            searchName={searchName}
+            setSearchName={setSearchName}
+            startDateRange={startDateRange}
+            setStartDateRange={setStartDateRange}
+          />
         </div>
-        <EventCard marathons={sortedEvents} />
-        <div className="flex justify-center mt-8">
-          <div className="btn-group ">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              className={`btn mr-2 ${currentPage === 1 ? "btn-disabled" : "btn-outline"}`}
-            >
-              «
-            </button>
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => handlePageChange(index + 1)}
-                className={`btn mr-2 ${currentPage === index + 1 ? "btn-active" : ""}`}
-              >
-                {index + 1}
-              </button>
-            ))}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              className={`btn ${currentPage === totalPages ? "btn-disabled" : "btn-outline"}`}
-            >
-              »
-            </button>
-          </div>
+
+        {/* Main Content */}
+        <div className="xl:col-span-4">
+          <EventsGrid events={filteredEvents} />
         </div>
       </div>
     </div>
