@@ -58,7 +58,7 @@ const Filters = ({
             {/* Marathon Start Date Range */}
             <div>
                 <label className="block font-medium mb-2">Marathon Start Date Range</label>
-                <div className="flex gap-2">
+                <div className="flex flex-col gap-2">
                     <input
                         type="date"
                         className="w-full p-2 border rounded-lg"

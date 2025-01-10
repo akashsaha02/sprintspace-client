@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import UpcomingMarathons from "../../components/Home/UpcomingMarathons";
 import RunningMarathons from "../../components/Home/RunningMarathons";
 import CarouselComp from './../../components/Home/CarouselComp';
+import Blog from "../../components/Home/Blogs";
 
 
 const HomePage = () => {
@@ -20,6 +21,7 @@ const HomePage = () => {
       <RunningMarathons />
       <UpcomingMarathons />
       <HowItWorks />
+      <Blog/>
       <OurMission />
       <NewsletterFAQ />
     </div>

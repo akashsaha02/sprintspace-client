@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "title": "The Benefits of Running Marathons",
+      "author": "John Doe",
+      "date": "2025-01-05",
+      "excerpt": "Running marathons has numerous physical and mental health benefits. Learn how it can transform your life!",
+      "image": "/images/marathon1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Top 5 Marathon Destinations",
+      "author": "Jane Smith",
+      "date": "2025-01-06",
+      "excerpt": "Discover the top 5 marathon destinations around the world for an unforgettable experience.",
+      "image": "/images/marathon2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "How to Prepare for Your First Marathon",
+      "author": "Chris Lee",
+      "date": "2025-01-07",
+      "excerpt": "Preparing for your first marathon? Check out our step-by-step guide to get ready for race day.",
+      "image": "/images/marathon3.jpg"
+    }
+  ]
+  

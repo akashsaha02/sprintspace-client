@@ -1,19 +1,18 @@
-import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import { AiOutlineDollarCircle, AiOutlineCalendar } from "react-icons/ai";
+import {  AiOutlineCalendar } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const EventCardImg = ({ marathons }) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-center items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-8 mt-8 justify-center items-center max-w-[1920px] mx-auto">
             {marathons.map((marathon) => {
                 // const isRegistrationOpen = new Date() < new Date(marathon.endRegistrationDate);
 
                 return (
                     <div
                         key={marathon._id}
-                        className="relative group max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform transform bg-white dark:bg-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700"
+                        className="relative group max-w-sm mx-auto rounded-lg overflow-hidden shadow-lg transition-transform transform bg-white dark:bg-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700"
                     >
                         {/* Image Section */}
                         <div className="relative overflow-hidden">
@@ -22,21 +21,11 @@ const EventCardImg = ({ marathons }) => {
                                 alt={marathon.title}
                                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                             />
-
-                            {/* Registration Status Badge */}
-                            {/* <span
-                                className={`absolute top-4 left-4 px-3 py-1 text-xs font-semibold uppercase rounded-full shadow-lg ${isRegistrationOpen
-                                    ? "bg-green-500 text-white animate-pulse"
-                                    : "bg-red-500 text-white"
-                                    }`}
-                            >
-                                {isRegistrationOpen ? "Open" : "Closed"}
-                            </span> */}
                         </div>
 
                         {/* Title Section */}
-                        <div className="p-4 text-center bg-gray-50 dark:bg-gray-800">
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 truncate group-hover:text-sky-600 transition-colors duration-300">
+                        <div className="p-4 text-center bg-sky-100 dark:bg-gray-800">
+                            <h3 className="text-xl font-faj font-bold text-gray-800 dark:text-gray-100 truncate group-hover:text-sky-600 transition-colors duration-300">
                                 {marathon.title}
                             </h3>
                         </div>
