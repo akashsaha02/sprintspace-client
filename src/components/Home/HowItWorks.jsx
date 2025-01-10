@@ -24,7 +24,7 @@ const WhyJoinMarathon = () => {
 
   return (
     <section className="bg-gray-100 dark:bg-gray-900 py-12 mt-10">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1920px] mx-auto px-4">
       <SectionTitle title="Why Join a Marathon?" subtitle="Discover the Benefits of Participating in Marathons" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 md:mt-12">
           {benefits.map((benefit, index) => (

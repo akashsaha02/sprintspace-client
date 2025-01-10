@@ -47,7 +47,7 @@ const AllMarathonsPage = () => {
   };
 
   return (
-    <div className="pt-10 pb-16 px-4 max-w-7xl mx-auto">
+    <div className="pt-10 pb-16 px-4 max-w-[1920px] mx-auto">
       <Helmet>
         <title>SprintSpace | All Marathons</title>
       </Helmet>

@@ -4,7 +4,7 @@ const NewsletterFAQ = () => {
 
     return (
         <section className="py-20 px-6 bg-gradient-to-b from-purple-300 via-purple-200 to-purple-100 text-white dark:from-purple-950 dark:via-purple-800 dark:to-purple-700">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-[1920px] mx-auto">
                 {/* Newsletter Section */}
                 <div className="text-center">
                     <SectionTitle

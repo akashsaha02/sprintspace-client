@@ -36,7 +36,7 @@ const EventDetailsPage = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="max-w-[1920px] mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>SprintSpace | Marathon Details</title>
       </Helmet>

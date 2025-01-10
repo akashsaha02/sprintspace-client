@@ -28,7 +28,7 @@ const Layout = () => {
       <Header toggleTheme={toggleTheme} currentTheme={theme} />
       <Outlet />
       <div className="">
-        <div className='max-w-7xl px-4 mx-auto'>
+        <div className='max-w-[1920px] px-4 mx-auto'>
           <Toaster />
         </div>
       </div>

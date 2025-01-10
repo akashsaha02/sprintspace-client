@@ -79,8 +79,8 @@ const Header = () => {
   );
 
   return (
-    <div className="bg-white dark:bg-gray-900 sticky top-0 z-20 shadow-md dark:shadow-gray-700 py-2">
-      <div className="navbar max-w-7xl mx-auto">
+    <div className="bg-white dark:bg-gray-900 sticky top-0 z-20 shadow-md dark:shadow-gray-700 py-2 px-4">
+      <div className="navbar max-w-[1920px] mx-auto">
         <div className="navbar-start items-center">
           <div className="lg:hidden ">
             <div className="dropdown">

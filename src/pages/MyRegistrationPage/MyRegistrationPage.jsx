@@ -149,7 +149,7 @@ const MyRegistrationPage = () => {
       <Helmet>
         <title>SprintSpace | My Registrations</title>
       </Helmet>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1920px] mx-auto px-4">
         <div className="mb-10">
           <SectionTitle
             title={"My Registrations"}
