@@ -58,9 +58,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/events/details/:id',
-        element: <PrivateRoute>
-          <EventDetailsPage />
-        </PrivateRoute>,
+        element: 
+          <EventDetailsPage />,
         loader: ({ params }) => axios.get(`${apiBaseUrl}/events/details/${params.id}`).then((res) => res.data)
       },
       {

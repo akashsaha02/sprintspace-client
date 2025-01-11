@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import SectionTitle from "../../components/shared/SectionTitle";
@@ -10,33 +10,49 @@ import RegistrationButton from "../../components/EventDetails/RegistrationButton
 import RegistrationModal from "../../components/EventDetails/RegistrationModal";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
-import EventCard from "../../components/EventCard/EventCard";
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import Swal from "sweetalert2";
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const EventDetailsPage = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate(); // For navigation
   const eventDetails = useLoaderData();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const[runningEvents, setRunningEvents] = useState([])
+  const [runningEvents, setRunningEvents] = useState([]);
 
   useEffect(() => {
-    axios.get(`${apiBaseUrl}/running-events`, { withCredentials: true }).then((response) => {
-      // console.log(response.data)
-      setRunningEvents(response.data.randomRunningEvents)
-    }).catch((error) => {
-      console.log(error)
-    })
-  }, [])
+    axios
+      .get(`${apiBaseUrl}/running-events`, { withCredentials: true })
+      .then((response) => {
+        setRunningEvents(response.data.randomRunningEvents);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   // Convert event start date to timestamp
   const eventStartDate = new Date(eventDetails?.marathonStartDate).getTime() || 0;
   const currentTime = Date.now();
   const remainingTime = Math.max(Math.floor((eventStartDate - currentTime) / 1000), 0);
 
+  const handleRegister = () => {
+    if (!user) {
+
+      Swal.fire({
+        title: 'You need to log in to register for this event.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+      navigate("/login"); // Redirect to login page
+      return;
+    }
+    setIsModalOpen(true);
+  };
 
   return (
-    <div className="max-w-[1920px] mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="max-w-7xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>SprintSpace | Marathon Details</title>
       </Helmet>
@@ -45,18 +61,18 @@ const EventDetailsPage = () => {
       {eventDetails ? (
         <div className="mt-4 md:mt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="">
+            <div>
               <EventHeader event={eventDetails} />
-
             </div>
-            <div className="">
+            <div>
               <EventInfoGrid event={eventDetails} />
               <EventCreatorInfo event={eventDetails} />
 
+              {/* Registration Button */}
               <RegistrationButton
                 event={eventDetails}
                 user={user}
-                onRegister={() => setIsModalOpen(true)}
+                onRegister={handleRegister}
               />
             </div>
           </div>
@@ -100,14 +116,13 @@ const EventDetailsPage = () => {
             </CountdownCircleTimer>
           </div>
           <div>
-            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center mt-6">More Running events</h2>
-            <div className="">
-              {/* <EventCard marathons={runningEvents} /> */}
-            </div>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center mt-6">
+              More Running Events
+            </h2>
+            <div>{/* <EventCard marathons={runningEvents} /> */}</div>
           </div>
 
-
-
+          {/* Registration Modal */}
           {isModalOpen && (
             <RegistrationModal
               event={eventDetails}

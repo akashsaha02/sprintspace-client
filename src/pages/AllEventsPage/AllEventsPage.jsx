@@ -13,7 +13,7 @@ const AllEventsPage = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchName, setSearchName] = useState("");
   const [startDateRange, setStartDateRange] = useState({ start: "", end: "" });
-
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const [eventsData, loading, error] = UseEvents("events");
 
@@ -57,12 +57,19 @@ const AllEventsPage = () => {
       });
     }
 
+    // Sort by start date
+    filtered.sort((a, b) => {
+      const dateA = new Date(a.marathonStartDate);
+      const dateB = new Date(b.marathonStartDate);
+      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+    });
+
     setFilteredEvents(filtered);
   };
 
   useEffect(() => {
     handleFilterChange();
-  }, [selectedType, selectedLocation, searchName, startDateRange]);
+  }, [selectedType, selectedLocation, searchName, startDateRange, sortOrder]);
 
   if (loading) {
     return (
@@ -94,6 +101,8 @@ const AllEventsPage = () => {
             setSearchName={setSearchName}
             startDateRange={startDateRange}
             setStartDateRange={setStartDateRange}
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
           />
         </div>
 
