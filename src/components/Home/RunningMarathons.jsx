@@ -7,11 +7,7 @@ import Loader from "../shared/Loader";
 
 const RunningMarathons = () => { // Default limit to 6
     const [events, setEvents] = useState([]);
-
     const [eventsData, loading, error] = UseEvents("running");
-
-    // console.log(eventsData.marathons)
-
 
     useEffect(() => {
         if (eventsData) {

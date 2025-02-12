@@ -14,7 +14,6 @@ const AllEventsPage = () => {
   const [searchName, setSearchName] = useState("");
   const [startDateRange, setStartDateRange] = useState({ start: "", end: "" });
   const [sortOrder, setSortOrder] = useState("asc");
-
   const [eventsData, loading, error] = UseEvents("events");
 
   useEffect(() => {
