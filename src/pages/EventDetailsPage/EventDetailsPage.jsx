@@ -11,6 +11,7 @@ import RegistrationModal from "../../components/EventDetails/RegistrationModal";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
 import Swal from "sweetalert2";
+import RunningMarathons from "../../components/Home/RunningMarathons";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -52,7 +53,7 @@ const EventDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="container mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>SprintSpace | Marathon Details</title>
       </Helmet>
@@ -119,7 +120,7 @@ const EventDetailsPage = () => {
             <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center mt-6">
               More Running Events
             </h2>
-            <div>{/* <EventCard marathons={runningEvents} /> */}</div>
+            <div><RunningMarathons/></div>
           </div>
 
           {/* Registration Modal */}
