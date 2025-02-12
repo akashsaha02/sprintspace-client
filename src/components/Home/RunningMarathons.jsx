@@ -15,7 +15,7 @@ const RunningMarathons = () => { // Default limit to 6
 
     useEffect(() => {
         if (eventsData) {
-            setEvents(eventsData.marathons || []); // Adjust to match the API response structure
+            setEvents(eventsData.marathons.slice(0,4) || []); // Adjust to match the API response structure
         }
     }, [eventsData]);
 
