@@ -1,4 +1,7 @@
+
 # SprintSpace – Marathon Management Platform
+
+![Header](./src/assets/github.png)
 
 SprintSpace is a full-stack web application that connects runners and campaign creators with opportunities to engage, donate, and participate in events. The project is divided into two main parts:
 
