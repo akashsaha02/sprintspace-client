@@ -103,8 +103,10 @@ b10a11-server-side-akashsaha02/
 
 1. **Clone the Repository**  
    Navigate to the client directory:  
-   `git clone <your-repo-url>`  
-   `cd akashsaha02-sprintspace-client`
+   ```
+   git clone https://github.com/akashsaha02/sprintspace-client 
+   cd sprintspace-client
+   ```
 
 2. **Install Dependencies**  
    Run:  
@@ -128,7 +130,10 @@ b10a11-server-side-akashsaha02/
 
 1. **Clone the Repository**  
    Navigate to the server directory:  
-   `cd b10a11-server-side-akashsaha02`
+   ```
+   git clone https://github.com/akashsaha02/sprintspace-server
+   cd sprintspace-server
+   ```
 
 2. **Install Dependencies**  
    Run:  
